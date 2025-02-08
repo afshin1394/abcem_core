@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="24d67eec-514e-43d5-93f9-0879871c6d3c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.dockerignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/abcem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/abcem.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/aioredis-2.0.1.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/aioredis-2.0.1.dist-info/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/aioredis-2.0.1.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/aioredis-2.0.1.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/aioredis-2.0.1.dist-info/REQUESTED" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/aioredis-2.0.1.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/aioredis-2.0.1.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/aioredis/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/aioredis/client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/aioredis/compat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/aioredis/connection.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/aioredis/exceptions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/aioredis/lock.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/aioredis/log.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/aioredis/py.typed" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/aioredis/sentinel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/aioredis/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/attr/_make.py" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/attr/_make.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/attrs-24.3.0.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/attrs-24.3.0.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/attrs-24.3.0.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/attrs-24.3.0.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/attrs-24.3.0.dist-info/licenses/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/jwt/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/jwt/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/jwt/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/jwt/exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/jwt/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/jwt/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/redis-5.2.1.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/redis-5.2.1.dist-info/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/redis-5.2.1.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/redis-5.2.1.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/redis-5.2.1.dist-info/REQUESTED" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/redis-5.2.1.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/redis-5.2.1.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/redis/asyncio/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/redis/asyncio/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/redis/asyncio/cluster.py" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/redis/asyncio/cluster.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/redis/asyncio/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/redis/asyncio/connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/redis/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/redis/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/redis/cluster.py" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/redis/cluster.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/redis/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/redis/connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/redis/credentials.py" beforeDir="false" afterPath="$PROJECT_DIR$/../.venv/lib/python3.9/site-packages/redis/credentials.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/commands/authenticate_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/commands/authenticate_command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/commands/create_user_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/commands/create_user_command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/handlers/authenticate_command_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/handlers/authenticate_command_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/handlers/create_user_command_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/handlers/create_user_command_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/mappers/ip_info_mapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/mappers/ip_info_mapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/mappers/speed_test_mapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/mappers/speed_test_mapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/mappers/users_mapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/mappers/users_mapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/shared/command_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/shared/command_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/usecase/create_user_usecase.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/usecase/create_user_usecase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/usecase/speed_test_server_list_usecase.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/usecase/speed_test_server_list_usecase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/events/authenticated_event.py" beforeDir="false" afterPath="$PROJECT_DIR$/domain/events/authenticated_event.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/events/user_created_event.py" beforeDir="false" afterPath="$PROJECT_DIR$/domain/events/user_created_event.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/repositories/speed_test_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repositories/speed_test_repository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/repositories/users_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repositories/users_repository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/services/get_ip_info_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/domain/services/get_ip_info_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/di/controllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/di/controllers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/di/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/di/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/di/jobs.py" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/di/jobs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/di/mediator.py" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/di/mediator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/di/redis_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/di/redis_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/di/repositories.py" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/di/repositories.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/di/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/di/services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/di/speed_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/di/speed_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/di/usecases.py" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/di/usecases.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/postgres.py" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/postgres.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/redis.py" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/redis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository_impl/get_gis_repository_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository_impl/get_gis_repository_impl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository_impl/get_ip_info_repository_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository_impl/get_ip_info_repository_impl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository_impl/speed_test_repository_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository_impl/speed_test_repository_impl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository_impl/users_repository_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository_impl/users_repository_impl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/schemas/speed_test_servers_table.py" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/schemas/speed_test_servers_table.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/schemas/users_table.py" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/schemas/users_table.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/services_impl/are_all_locations_within_distance_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/services_impl/are_all_locations_within_distance_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/services_impl/get_ip_info_use_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/services_impl/get_ip_info_use_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/services_impl/speed_test_crawler.py" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/services_impl/speed_test_crawler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/api/v1/endpoints/authentication/authentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces/api/v1/endpoints/authentication/authentication.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/api/v1/endpoints/validation/validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces/api/v1/endpoints/validation/validation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/controllers/authentication_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces/controllers/authentication_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/controllers/user_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces/controllers/user_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/mapper/speed_test_server_mapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces/mapper/speed_test_server_mapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobs/schedual_speed_test_task.py" beforeDir="false" afterPath="$PROJECT_DIR$/jobs/schedual_speed_test_task.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/repositoryImpl/speed_test_repository_impl_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/../test/repositoryImpl/speed_test_repository_impl_test.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2sfoI80JKh19ZSL8VjOyNPq02cI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/mtnirancell/PycharmProjects/services_customer_complain/abcem/app",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-PY-243.21565.199" />
+        <option value="bundled-python-sdk-cab1f2013843-4ae2d6a61b08-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.21565.199" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="24d67eec-514e-43d5-93f9-0879871c6d3c" name="Changes" comment="" />
+      <created>1738855907632</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1738855907632</updated>
+      <workItem from="1738855908668" duration="40000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
