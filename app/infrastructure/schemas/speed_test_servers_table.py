@@ -1,12 +1,12 @@
-import uuid
 
 from sqlalchemy import Column, String, TIMESTAMP, FLOAT
-from datetime import datetime
+from sqlalchemy.sql import func
 
-from app.infrastructure.schemas.base_db_model import BaseDBModel, Base
+from app.infrastructure.schemas.base_db_model import BaseDBModel
 
 
-class SpeedTestServerTable(Base, BaseDBModel):
+class SpeedTestServerTable(BaseDBModel):
+    __tablename__ = "speed_test_servers_table"
     server_id = Column(String, unique=True)
     sponsor = Column(String, nullable=True)
     name = Column(String, nullable=True)
@@ -17,4 +17,4 @@ class SpeedTestServerTable(Base, BaseDBModel):
     host = Column(String, nullable=True)
     distance = Column(FLOAT, nullable=True)
     cc = Column(String, nullable=True)
-    last_updated = Column(TIMESTAMP, default=datetime.now(), onupdate=datetime.now())
+    last_updated = Column(TIMESTAMP, default=func.now(), onupdate=func.now())

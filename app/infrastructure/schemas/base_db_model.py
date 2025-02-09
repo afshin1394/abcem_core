@@ -5,12 +5,11 @@ from sqlalchemy import Column, DateTime, String
 from sqlalchemy.ext.declarative import declared_attr
 from sqlalchemy.orm import declarative_base, declarative_mixin
 from sqlalchemy.sql import func
-from sqlalchemy.dialects.postgresql import UUID
 
 Base = declarative_base()
 
-@declarative_mixin
-class BaseDBModel:
+class BaseDBModel(Base):
+    __abstract__ = True  # <-- Prevent table creation for BaseDBModel
     """Class defining common db model components."""
     # autoinc pk key
     id = Column(String, primary_key=True,default=lambda: str(uuid.uuid4()))
@@ -20,7 +19,6 @@ class BaseDBModel:
     @declared_attr
     def __tablename__(cls) -> str:
         return cls.__name__.lower()
-
     # refresh server defaults with asyncio
     # https://docs.sqlalchemy.org/en/14/orm/extensions/asyncio.html#synopsis-orm
     # required in order to access columns with server defaults

@@ -4,101 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32495f57-93b2-4593-a15d-d4c5d0910bb9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.env.docker" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/core.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/commands/authenticate_command.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/commands/create_user_command.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/handlers/authenticate_command_handler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/handlers/create_user_command_handler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/mappers/ip_info_mapper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/mappers/speed_test_mapper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/mappers/users_mapper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/mediator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/shared/command.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/shared/command_handler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/usecase/base_use_case.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/usecase/create_user_usecase.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/usecase/speed_test_server_list_usecase.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/entities/ip_info_domain.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/entities/speed_test_server_domain.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/entities/users_domain.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/events/authenticated_event.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/events/event.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/events/user_created_event.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/repositories/speed_test_repository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/repositories/users_repository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/services/get_gis_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/services/get_ip_info_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/di/async_client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/di/controllers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/di/database.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/di/jobs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/di/mediator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/di/redis_client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/di/repositories.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/di/services.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/di/speed_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/di/usecases.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/jobs/schedulers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/postgres.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/redis.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/remote/dto/ip_info_dto.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/get_gis_repository_impl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/get_ip_info_repository_impl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/speed_test_repository_impl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/users_repository_impl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/schemas/base_db_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/schemas/meta_data.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/schemas/speed_test_servers_table.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/schemas/users_table.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/services_impl/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/services_impl/are_all_locations_within_distance_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/services_impl/country.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/services_impl/get_ip_info_use_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/services_impl/speed_test_crawler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/services_impl/speed_test_servers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/api/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/api/v1/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/authentication/authentication.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/validation/validation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/api/v2/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/api/v2/endpoints/authentication/authentication.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/api/v2/endpoints/validation/validation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/controllers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/controllers/authentication_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/controllers/user_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/dto/request/authenticate_request.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/dto/request/user_create_request.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/dto/response/authenticate_response.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/dto/response/server_response.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/mapper/speed_test_server_mapper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/jobs/schedual_speed_test_task.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/repositoryImpl/speed_test_repository_impl_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/usecase/gis_test/are_all_locations_within_distance.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_main.http" afterDir="false" />
+    <list default="true" id="32495f57-93b2-4593-a15d-d4c5d0910bb9" name="Changes" comment="alembic integration">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alembic.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alembic/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alembic/env.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alembic/script.py.mako" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alembic/versions/021bd3d1b76a_initial_migration.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/base_db_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/base_db_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/meta_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/speed_test_servers_table.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/speed_test_servers_table.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/users_table.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/users_table.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,12 +87,26 @@
       <workItem from="1738856603468" duration="7592000" />
       <workItem from="1739013581142" duration="6486000" />
       <workItem from="1739026821383" duration="2906000" />
-      <workItem from="1739029742955" duration="2448000" />
+      <workItem from="1739029742955" duration="2826000" />
+      <workItem from="1739087055393" duration="12130000" />
     </task>
+    <task id="LOCAL-00001" summary="alembic integration">
+      <option name="closed" value="true" />
+      <created>1739032557968</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1739032557968</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="alembic integration" />
+    <option name="LAST_COMMIT_MESSAGE" value="alembic integration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -245,6 +175,11 @@
           <url>file://$PROJECT_DIR$/app/application/mediator.py</url>
           <line>12</line>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/migrations/env.py</url>
+          <line>22</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
