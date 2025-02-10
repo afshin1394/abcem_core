@@ -1,6 +1,4 @@
-
-
-from app.application.mappers.speed_test_mapper import  from_domain_list, to_domain_list
+from app.application.mappers.data_mapper import DataMapper
 from app.domain.entities.speed_test_server_domain import SpeedTestServerDomain
 from app.domain.repositories.speed_test_repository import SpeedTestRepository
 
@@ -17,7 +15,7 @@ class SpeedTestRepositoryImpl(SpeedTestRepository):
 
 
     async def save_all(self, results: List[SpeedTestServerDomain]) -> None:
-        db_result = from_domain_list(results)
+        db_result = DataMapper.domain_list_to_schema(results,SpeedTestServerTable)
         self.db.add_all(db_result)
         await self.db.commit()
 
@@ -30,7 +28,7 @@ class SpeedTestRepositoryImpl(SpeedTestRepository):
         models = result.scalars().all()
 
         # Map ORM models to domain models
-        return to_domain_list(models)
+        return DataMapper.schema_list_to_domain(models,SpeedTestServerDomain)
 
     async def upsert_servers(self, servers: List[SpeedTestServerDomain]) -> None:
         """

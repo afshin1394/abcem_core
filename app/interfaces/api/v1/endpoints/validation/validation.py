@@ -1,6 +1,5 @@
 from fastapi import APIRouter,Depends,HTTPException
 
-from app.application.mappers.speed_test_mapper import to_response_list
 from app.infrastructure.di.controllers import authentication_controller
 from app.infrastructure.di.redis_client import get_redis_instance
 from app.infrastructure.di.speed_test import get_speed_test

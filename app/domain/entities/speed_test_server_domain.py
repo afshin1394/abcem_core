@@ -1,9 +1,8 @@
-from typing import Sequence, List
+from dataclasses import dataclass
+from typing import List
 
-from pydantic import BaseModel
-from datetime import datetime
-
-class SpeedTestServerDomain(BaseModel):
+@dataclass
+class SpeedTestServerDomain:
     id: str
     sponsor: str
     name: str
@@ -11,11 +10,11 @@ class SpeedTestServerDomain(BaseModel):
     lat: str
     lon: str
     url: str
-    host:str
-    distance:float
-    cc:str
+    host: str
+    distance: float
+    cc: str
 
-   # Ensure the data type is consistent
     @staticmethod
-    def validate_list(data: Sequence) -> List:
+    def validate_list(data) -> List:
+        """Ensure the data type is a list."""
         return list(data)

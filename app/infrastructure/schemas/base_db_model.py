@@ -3,8 +3,9 @@ import uuid
 
 from sqlalchemy import Column, DateTime, String
 from sqlalchemy.ext.declarative import declared_attr
-from sqlalchemy.orm import declarative_base, declarative_mixin
+from sqlalchemy.orm import declarative_base
 from sqlalchemy.sql import func
+
 
 Base = declarative_base()
 
@@ -25,3 +26,5 @@ class BaseDBModel(Base):
     # or SQL expression defaults, subsequent to a flush, without
     # triggering an expired load
     __mapper_args__ = {"eager_defaults": True}
+
+

@@ -9,7 +9,7 @@ from fastapi import FastAPI
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # await initialize_database()
+    await initialize_database()
     yield
 
 

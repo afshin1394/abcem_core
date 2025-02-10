@@ -1,7 +1,6 @@
 import uuid
 
 from sqlalchemy import Column, String,  BigInteger, TIMESTAMP
-from datetime import datetime
 from sqlalchemy.sql import func
 from app.infrastructure.schemas.base_db_model import BaseDBModel
 

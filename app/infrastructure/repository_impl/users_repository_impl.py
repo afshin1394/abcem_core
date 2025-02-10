@@ -1,6 +1,5 @@
-from typing import List
 
-from app.application.mappers.users_mapper import to_domain_list, from_domain
+from app.application.mappers.data_mapper import DataMapper
 from app.domain.entities.users_domain import UserDomain
 from app.domain.repositories.users_repository import UsersRepository
 from app.infrastructure.schemas.users_table import UsersTable
@@ -16,7 +15,7 @@ class UsersRepositoryImpl(UsersRepository):
         self.db = db
 
     async def save(self, user_domain: UserDomain) -> None:
-        db_result = from_domain(user_domain)
+        db_result = DataMapper.domain_to_schema(user_domain,UsersTable)
         self.db.add(db_result)
         await self.db.commit()
 
@@ -28,4 +27,4 @@ class UsersRepositoryImpl(UsersRepository):
         models = result.scalars().all()
 
         # Map ORM models to domain models
-        return to_domain_list(models)
+        return DataMapper.schema_list_to_domain(models,UserDomain)
