@@ -1,7 +1,4 @@
 from contextlib import asynccontextmanager
-
-from sqlalchemy.ext.asyncio import create_async_engine
-
 from app.infrastructure.postgres import initialize_database
 from app.interfaces.api import router_all
 from fastapi import FastAPI

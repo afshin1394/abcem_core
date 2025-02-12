@@ -46,7 +46,8 @@ class DataMapper:
 
     @classmethod
     def command_to_domain(cls,command_instance: BaseModel, domain_model: Type[D]) -> D:
-        return domain_model(**command_instance.__dict__)
+        command_dict = {key: value for key, value in command_instance.__dict__.items() if key != 'correlation_id'}
+        return domain_model(**command_dict)
 
     @classmethod
     def query_to_domain(cls,query_instance: BaseModel, domain_model: Type[D]) -> D:

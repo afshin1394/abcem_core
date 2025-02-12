@@ -6,7 +6,8 @@ WORKDIR /app
 
 # Ensure Python finds `authentication` as a package
 ENV PYTHONPATH=/app
-
+# Ensure Python finds the application package
+ENV PYTHONUNBUFFERED=1
 # Install system dependencies (for distutils in Python 3.12+)
 RUN apt-get update && apt-get install -y python3-distutils && rm -rf /var/lib/apt/lists/*
 
@@ -24,7 +25,8 @@ COPY . .
 RUN pip install --no-cache-dir uvicorn
 
 # Expose the application port
-#EXPOSE 8001
-#
-## Run the application using Uvicorn
-#CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8001"]
+EXPOSE 8001 5679
+
+# Run the application using Uvicorn
+CMD ["python3", "-m", "debugpy", "--listen", "0.0.0.0:5679", "-m", "uvicorn", "app.main:app", "--reload", "--host", "0.0.0.0", "--port", "8001"]
+

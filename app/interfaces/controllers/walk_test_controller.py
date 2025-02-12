@@ -6,5 +6,5 @@ class WalkTestController:
     def __init__(self, create_walk_test_use_case: CreateWalkTestUseCase):
             self.create_walk_test_use_case = create_walk_test_use_case
     async  def create_walk_test(self, walk_test_request : WalkTestRequest)->str:
-        await self.create_walk_test_use_case.execute(create_user_request= walk_test_request)
-        return "created"
+        print(str(walk_test_request))
+        return await self.create_walk_test_use_case.execute(create_walk_test_request= walk_test_request)

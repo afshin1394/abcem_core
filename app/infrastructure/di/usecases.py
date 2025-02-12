@@ -20,7 +20,7 @@ async def get_create_user_use_case(
     return CreateUserUseCase(mediator=mediator)
 
 
-async def get_walk_test_use_case(
+async def get_create_walk_test_use_case(
      mediator : Mediator = Depends(get_mediator),
 ) -> CreateWalkTestUseCase:
     return CreateWalkTestUseCase(mediator=mediator)

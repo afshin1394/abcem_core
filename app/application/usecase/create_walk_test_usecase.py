@@ -18,3 +18,4 @@ class CreateWalkTestUseCase(BaseUseCase):
                await  self.mediator.send(walk_test_command)
         else:
             print("The argument is not of type 'create_walk_test_request'")
+

@@ -19,7 +19,7 @@ class UserController:
         logger.logger.debug(msg=f'create_user {create_user_request.__str__()}')
         logger.logger.debug(msg=f'create_user {self.create_user_use_case.__str__()}')
         await self.create_user_use_case.execute(create_user_request= create_user_request)
-        return "string"
+        return "created"
 
     async def speed_test_init(self)->List[SpeedTestServerResponse]:
         speed_test_domain_list = await self.speed_test_server_list_use_case.execute(concurrency=1, retries=3)

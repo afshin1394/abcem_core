@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 from datetime import datetime
-from shapely.geometry import Point
 from typing import Optional
 
 from app.domain.enums.problem_type_enum import ProblemTypeEnum
@@ -16,7 +15,8 @@ class WalkTestDomain:
     region: Optional[str]
     city: Optional[str]
     is_village: bool
-    location: Point  # Shapely for geometry
+    latitude: float
+    longitude: float
     serving_cell: Optional[str]
     serving_site: Optional[str]
     problematic_times: Optional[str]
@@ -26,5 +26,4 @@ class WalkTestDomain:
     problem_type: Optional[ProblemTypeEnum]
     problematic_service: Optional[ProblematicServiceEnum]
     related_tt: str
-    created_at: datetime
     status: WalkTestStatusEnum

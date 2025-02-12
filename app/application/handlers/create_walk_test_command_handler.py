@@ -6,7 +6,7 @@ from app.domain.entities.walk_test_domain import WalkTestDomain
 from app.domain.repositories.walk_test_repository import WalkTestRepository
 
 
-class CreateWalkTestHandler(CommandHandler):
+class CreateWalkTestCommandHandler(CommandHandler):
     def __init__(self, walk_test_repository: WalkTestRepository):
         self.walk_test_repository = walk_test_repository
 
