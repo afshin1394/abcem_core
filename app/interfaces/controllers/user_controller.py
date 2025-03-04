@@ -1,8 +1,8 @@
 from typing import List
 
-from app.application.mappers.data_mapper import DataMapper
 from app.application.usecase.create_user_usecase import CreateUserUseCase
 from app.application.usecase.speed_test_server_list_usecase import SpeedTestServerListUseCase
+from app.infrastructure.mapper.mapper import  map_models_list
 from app.interfaces.dto.request.user_create_request import CreateUserRequest
 from fastapi import logger
 
@@ -23,4 +23,4 @@ class UserController:
 
     async def speed_test_init(self)->List[SpeedTestServerResponse]:
         speed_test_domain_list = await self.speed_test_server_list_use_case.execute(concurrency=1, retries=3)
-        return DataMapper.domain_list_to_dto(speed_test_domain_list,SpeedTestServerResponse)
+        return await map_models_list(speed_test_domain_list,SpeedTestServerResponse)

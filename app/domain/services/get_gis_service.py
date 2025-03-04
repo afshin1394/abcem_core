@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from typing import Tuple
 
 
-class GetGISService(ABC):
+class GetGISService:
     @abstractmethod
     async def get_haversine_distance(self,coord1: Tuple[float, float],
                                coord2: Tuple[float, float]) -> float:

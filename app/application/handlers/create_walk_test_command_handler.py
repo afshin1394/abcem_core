@@ -1,9 +1,9 @@
 
 from app.application.commands.create_walk_test_command import CreateWalkTestCommand
-from app.application.mappers.data_mapper import DataMapper
-from app.application.shared.command_handler import CommandHandler, C, E
+from app.application.shared.command_handler import CommandHandler
 from app.domain.entities.walk_test_domain import WalkTestDomain
 from app.domain.repositories.walk_test_repository import WalkTestRepository
+from app.infrastructure.mapper.mapper import map_models
 
 
 class CreateWalkTestCommandHandler(CommandHandler):
@@ -11,7 +11,8 @@ class CreateWalkTestCommandHandler(CommandHandler):
         self.walk_test_repository = walk_test_repository
 
     async def handle(self, command: CreateWalkTestCommand) :
-        await self.walk_test_repository.save(DataMapper.command_to_domain(command,WalkTestDomain))
+        walk_test_domain = await map_models(command,WalkTestDomain)
+        await self.walk_test_repository.save(walk_test_domain)
 
     async def deserialize_command(self, json_str: str) -> CreateWalkTestCommand:
         pass

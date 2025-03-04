@@ -1,8 +1,10 @@
 # infrastructure/cache/redis_client.py
-
 from typing import Optional
+
+from redis.asyncio import Redis
+
 from app.core.config import settings
-import aioredis
+
 
 class RedisClient:
     _instance: Optional['RedisClient'] = None
@@ -15,7 +17,7 @@ class RedisClient:
     async def get_instance(cls, redis_url: str = f'{settings.redis_url}') -> 'RedisClient':
         if cls._instance is None:
             cls._instance = RedisClient(redis_url)
-            cls._instance.redis = await aioredis.from_url(redis_url, decode_responses=True)
+            cls._instance.redis = await Redis.from_url(redis_url, decode_responses=True)
         return cls._instance
 
     async def invalidate_keys(self, keys: list):

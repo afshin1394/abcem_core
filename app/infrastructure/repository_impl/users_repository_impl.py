@@ -1,8 +1,7 @@
-
-from app.application.mappers.data_mapper import DataMapper
 from app.domain.entities.users_domain import UserDomain
 from app.domain.repositories.users_repository import UsersRepository
-from app.infrastructure.schemas.users_table import UsersTable
+from app.infrastructure.mapper.mapper import map_models, map_models_list
+from app.infrastructure.schemas.table_users import TableUsers
 from sqlalchemy.ext.asyncio import AsyncSession
 
 
@@ -15,16 +14,16 @@ class UsersRepositoryImpl(UsersRepository):
         self.db = db
 
     async def save(self, user_domain: UserDomain) -> None:
-        db_result = DataMapper.domain_to_schema(user_domain,UsersTable)
+        db_result = await map_models(user_domain, TableUsers)
         self.db.add(db_result)
         await self.db.commit()
 
     async def get_all(self) -> List[UserDomain]:
         # Execute query to fetch all rows from the table
-        result = await self.db.execute(select(UsersTable))
+        result = await self.db.execute(select(TableUsers))
 
         # Extract ORM models (SpeedTestTable instances)
         models = result.scalars().all()
 
         # Map ORM models to domain models
-        return DataMapper.schema_list_to_domain(models,UserDomain)
+        return await map_models_list(models,UserDomain)

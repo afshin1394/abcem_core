@@ -2,7 +2,7 @@ import pytest
 from unittest.mock import AsyncMock
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.dialects.postgresql import insert
-from app.infrastructure.schemas.speed_test_servers_table import SpeedTestServerTable
+from app.infrastructure.schemas.table_speed_test_servers import TableSpeedTestServer
 from app.domain.entities.speed_test_server_domain import SpeedTestServerDomain
 from app.infrastructure.repository_impl.speed_test_repository_impl import SpeedTestRepositoryImpl
 from datetime import datetime
@@ -44,7 +44,7 @@ async def test_upsert_servers():
 
     # Prepare expected SQL statement
     expected_values = [server.model_dump() for server in servers]
-    stmt = insert(SpeedTestServerTable).values(expected_values)
+    stmt = insert(TableSpeedTestServer).values(expected_values)
     stmt = stmt.on_conflict_do_update(
         index_elements=["server_id"],
         set_={

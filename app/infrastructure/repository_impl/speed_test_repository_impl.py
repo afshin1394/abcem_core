@@ -1,8 +1,8 @@
-from app.application.mappers.data_mapper import DataMapper
 from app.domain.entities.speed_test_server_domain import SpeedTestServerDomain
 from app.domain.repositories.speed_test_repository import SpeedTestRepository
+from app.infrastructure.mapper.mapper import map_models, map_models_list
 
-from app.infrastructure.schemas.speed_test_servers_table import SpeedTestServerTable
+from app.infrastructure.schemas.table_speed_test_servers import TableSpeedTestServer
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from typing import List
@@ -15,20 +15,20 @@ class SpeedTestRepositoryImpl(SpeedTestRepository):
 
 
     async def save_all(self, results: List[SpeedTestServerDomain]) -> None:
-        db_result = DataMapper.domain_list_to_schema(results,SpeedTestServerTable)
+        db_result = await map_models_list(results, TableSpeedTestServer)
         self.db.add_all(db_result)
         await self.db.commit()
 
 
     async def get_all(self) -> List[SpeedTestServerDomain]:
         # Execute query to fetch all rows from the table
-        result = await self.db.execute(select(SpeedTestServerTable))
+        result = await self.db.execute(select(TableSpeedTestServer))
 
         # Extract ORM models (SpeedTestTable instances)
         models = result.scalars().all()
 
         # Map ORM models to domain models
-        return DataMapper.schema_list_to_domain(models,SpeedTestServerDomain)
+        return mapp(models,SpeedTestServerDomain)
 
     async def upsert_servers(self, servers: List[SpeedTestServerDomain]) -> None:
         """
@@ -39,7 +39,7 @@ class SpeedTestRepositoryImpl(SpeedTestRepository):
         values = [server.model_dump() for server in servers]
 
         # Create an insert statement with on conflict do update clause
-        stmt = insert(SpeedTestServerTable).values(values)
+        stmt = insert(TableSpeedTestServer).values(values)
         stmt = stmt.on_conflict_do_update(
             index_elements=["server_id"],  # Unique index to detect conflicts
             set_={

@@ -5,5 +5,5 @@ from .v2 import router_v2  as v2
 
 router_all = APIRouter()
 
-router_all.include_router(v1, prefix="/v1",tags=["v1"])
-router_all.include_router(v2, prefix="/v2",tags=["v2"])
+router_all.include_router(v1)
+router_all.include_router(v2)

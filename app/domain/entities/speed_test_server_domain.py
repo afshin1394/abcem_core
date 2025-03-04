@@ -16,5 +16,4 @@ class SpeedTestServerDomain:
 
     @staticmethod
     def validate_list(data) -> List:
-        """Ensure the data type is a list."""
         return list(data)
