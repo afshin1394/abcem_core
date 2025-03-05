@@ -19,7 +19,6 @@ from app.infrastructure.schemas.table_walk_test_detail import TableWalkTestDetai
 from app.infrastructure.schemas.table_walk_test import TableWalkTest
 from app.infrastructure.schemas.table_walk_test_status import TableWalkTestStatus
 from app.infrastructure.schemas.table_complaint_type import TableComplaintType
-from app.infrastructure.schemas.table_walk_test_history import TableWalkTestHistory
 
 # This is the Alembic Config object, which provides access to the values within the .ini file in use.
 config = context.config

@@ -1,19 +1,84 @@
-from dataclasses import is_dataclass
-from typing import Type, TypeVar, List, get_type_hints, Sequence, get_origin, get_args
-
-from pydantic import BaseModel
-from sqlalchemy import inspect
+import datetime
+from typing import Type, TypeVar, Any, get_origin, Sequence, List, get_args
 from sqlalchemy.orm import ColumnProperty
+from sqlalchemy import Integer, String, Float, Boolean, inspect
+from enum import Enum
+from dataclasses import is_dataclass
+from pydantic import BaseModel
+from typing import get_type_hints
 
 T = TypeVar("T")
 U = TypeVar("U")
 
 
+def cast_value(target_type: Type, value: Any) -> Any:
+    """Casts the given value to the target type, with special handling for Enums and SQLAlchemy column types."""
+
+    # If target_type is datetime module, use datetime.datetime instead
+    if target_type == datetime:
+        target_type = datetime.datetime
+
+    # If value is already an instance of target_type, return it directly
+    if isinstance(value, target_type):
+        return value
+
+    # Handle Enum -> Corresponding SQLAlchemy Type
+    print("isinstance(value, Enum)"+isinstance(value, Enum).__str__())
+    if isinstance(value, Enum):
+        if isinstance(value.value, int):
+            return int(value.value)  # Convert Enum(int) -> Integer
+        elif isinstance(value.value, str):
+            return str(value.value)  # Convert Enum(str) -> String
+        elif isinstance(value.value, float):
+            return float(value.value)  # Convert Enum(float) -> Float
+        elif isinstance(value.value, bool):
+            return bool(value.value)  # Convert Enum(bool) -> Boolean
+        else:
+            raise ValueError(f"Unsupported Enum value type: {type(value.value)}")
+
+    # Handle Primitive Value -> Enum
+    if isinstance(target_type, type) and issubclass(target_type, Enum):
+        try:
+            return target_type(value)  # Convert primitive value to Enum
+        except ValueError:
+            raise ValueError(f"Invalid value {value} for Enum {target_type}")
+
+    # Special handling for datetime conversion
+    if target_type == datetime.datetime:
+        if isinstance(value, str):
+            try:
+                return datetime.datetime.fromisoformat(value)
+            except Exception as e:
+                raise ValueError(f"Error parsing datetime from string {value}: {e}")
+        elif isinstance(value, (int, float)):
+            try:
+                return datetime.datetime.fromtimestamp(value)
+            except Exception as e:
+                raise ValueError(f"Error converting timestamp {value} to datetime: {e}")
+
+    # Handle SQLAlchemy Column Type Mapping (Integer, String, Float, Boolean)
+    sqlalchemy_type_mapping = {
+        Integer: int,
+        String: str,
+        Float: float,
+        Boolean: bool,
+    }
+
+    # If the target type is a SQLAlchemy type, map it to Python type
+    if target_type in sqlalchemy_type_mapping:
+        target_type = sqlalchemy_type_mapping[target_type]
+
+    # Default: attempt to cast the value to the target type
+    try:
+        return target_type(value)
+    except Exception as e:
+        raise ValueError(f"Error casting value {value} to {target_type}: {e}")
+
+
 async def map_models(source: T, target_class: Type[U]) -> U:
     """
-    Maps equivalent properties from the source object to a new instance of target_class
-    based on matching attribute names and casts them to the appropriate type in the target class.
-    Works with dataclasses, Pydantic models, and SQLAlchemy models.
+    Maps equivalent properties from the source object to a new instance of target_class,
+    while handling Enums, SQLAlchemy Column types, Dataclasses, and Pydantic models.
     """
     source_attrs = vars(source)  # Get attributes of the source object
     init_args = {}
@@ -25,14 +90,12 @@ async def map_models(source: T, target_class: Type[U]) -> U:
             if attr in mapper.attrs:  # Check if the target has the same attribute
                 prop = mapper.attrs[attr]
                 if isinstance(prop, ColumnProperty):  # Handle only column properties
-                    target_type = prop.columns[0].type.python_type  # Get the Python type of the column
-                    try:
-                        # Cast the value to the target type
-                        casted_value = target_type(value)
-                        init_args[attr] = casted_value
-                    except (TypeError, ValueError) as e:
-                        # Handle type casting errors (e.g., incompatible types)
-                        print(f"Warning: Could not cast {attr} from {type(value)} to {target_type}: {e}")
+                    column = prop.columns[0]
+                    target_type = column.type.python_type  # Get Python type
+
+                    # Convert Enums to their corresponding primitive SQLAlchemy type
+                    casted_value = cast_value(target_type, value)
+                    init_args[attr] = casted_value
 
     # Handle dataclasses
     elif is_dataclass(target_class):
@@ -40,13 +103,10 @@ async def map_models(source: T, target_class: Type[U]) -> U:
         for attr, value in source_attrs.items():
             if attr in target_type_hints:  # Check if the target has the same attribute
                 target_type = target_type_hints[attr]
-                try:
-                    # Cast the value to the target type
-                    casted_value = target_type(value)
-                    init_args[attr] = casted_value
-                except (TypeError, ValueError) as e:
-                    # Handle type casting errors (e.g., incompatible types)
-                    print(f"Warning: Could not cast {attr} from {type(value)} to {target_type}: {e}")
+
+                # Convert Enums or other types as needed
+                casted_value = cast_value(target_type, value)
+                init_args[attr] = casted_value
 
     # Handle Pydantic models
     elif issubclass(target_class, BaseModel):
@@ -54,18 +114,14 @@ async def map_models(source: T, target_class: Type[U]) -> U:
         for attr, value in source_attrs.items():
             if attr in target_fields:  # Check if the target has the same attribute
                 target_type = target_fields[attr]
-                try:
-                    # Cast the value to the target type
-                    casted_value = target_type(value)
-                    init_args[attr] = casted_value
-                except (TypeError, ValueError) as e:
-                    # Handle type casting errors (e.g., incompatible types)
-                    print(f"Warning: Could not cast {attr} from {type(value)} to {target_type}: {e}")
+
+                # Convert Enums or other types as needed
+                casted_value = cast_value(target_type, value)
+                init_args[attr] = casted_value
 
     else:
         raise TypeError(f"Unsupported target class type: {target_class}")
 
-    # Create an instance of the target class using the collected arguments
     target_instance = target_class(**init_args)
     return target_instance
 

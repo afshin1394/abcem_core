@@ -12,6 +12,7 @@ class CreateWalkTestCommandHandler(CommandHandler):
 
     async def handle(self, command: CreateWalkTestCommand) :
         walk_test_domain = await map_models(command,WalkTestDomain)
+        print("walk_test_domain"+str(walk_test_domain))
         await self.walk_test_repository.save(walk_test_domain)
 
     async def deserialize_command(self, json_str: str) -> CreateWalkTestCommand:

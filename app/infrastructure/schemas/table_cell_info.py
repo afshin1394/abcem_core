@@ -1,7 +1,8 @@
-from sqlalchemy import Integer, Column, ForeignKey, String
+from sqlalchemy import Integer, Column, ForeignKey, String, Enum
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import relationship
 
+from app.domain.enums.technology_enum import TechnologyEnum
 from app.infrastructure.schemas.base_db_model import BaseDBModelWithUUIDPK
 
 

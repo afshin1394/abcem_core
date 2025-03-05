@@ -1,9 +1,11 @@
 
-from sqlalchemy import Integer, Column, String, ForeignKey
+from sqlalchemy import Integer, Column, String, ForeignKey, Enum
 from sqlalchemy.orm import relationship
 
 from app.infrastructure.schemas.base_db_model import BaseDBModelWithUUIDPK
 from .table_step_type import TableStepTestType
+from ...domain.enums.step_test_type_enum import StepTestTypeEnum
+
 
 class TableWalkTestDetail(BaseDBModelWithUUIDPK):
     __tablename__ = 'table_walk_test_detail'

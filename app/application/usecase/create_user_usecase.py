@@ -29,7 +29,6 @@ class CreateUserUseCase(BaseUseCase):
                 age_int = 0  # Default age value or handle error appropriately
 
             # Return a new CreateUserCommand object with the data
-
             await  self.mediator.send( CreateUserCommand(name=name, age=age_int, gender=gender))
         else:
             print("The argument is not of type 'UserCreateRequest'")

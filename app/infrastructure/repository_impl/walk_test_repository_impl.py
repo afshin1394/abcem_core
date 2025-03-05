@@ -14,6 +14,7 @@ class WalkTestRepositoryImpl(WalkTestRepository):
 
     async def save(self, walk_test_domain: WalkTestDomain) -> None:
         result = await map_models(walk_test_domain,TableWalkTest)
+        print("walk_test_schema" + str(result))
         self.db.add(result)
         await self.db.commit()
 

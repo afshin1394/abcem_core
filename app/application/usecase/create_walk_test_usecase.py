@@ -17,6 +17,7 @@ class CreateWalkTestUseCase(BaseUseCase):
         if isinstance(create_walk_test_request, WalkTestRequest):
                print("walk_test_request"+create_walk_test_request.__str__())
                walk_test_command = await map_models(create_walk_test_request,CreateWalkTestCommand)
+               print("walk_test_command"+walk_test_command.__str__())
                await self.mediator.send(walk_test_command)
         else:
             print("The argument is not of type 'create_walk_test_request'")

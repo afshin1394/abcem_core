@@ -5,73 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32495f57-93b2-4593-a15d-d4c5d0910bb9" name="Changes" comment="alembic integration">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/enums/step_test_type_enum.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/mapper/mapper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_cell_info.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_complaint_type.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_device_info.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_problematic_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_step_type.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_technology_type.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_voice_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_walk_test_detail.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_walk_test_status.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/api/v2/endpoints/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.docker" beforeDir="false" afterPath="$PROJECT_DIR$/.env.docker" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/core.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/core.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/enums/service_type_enum.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_service_type.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/infrastructure/mapper/mapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic.ini" beforeDir="false" afterPath="$PROJECT_DIR$/alembic.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/application/commands/create_walk_test_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/commands/create_walk_test_command.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/application/handlers/create_walk_test_command_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/handlers/create_walk_test_command_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/application/mappers/data_mapper.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/application/mediator.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/mediator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/application/shared/command.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/shared/command.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/application/usecase/base_use_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/usecase/base_use_case.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/usecase/create_user_usecase.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/usecase/create_user_usecase.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/application/usecase/create_walk_test_usecase.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/usecase/create_walk_test_usecase.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/domain/entities/base_domain_model.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/domain/entities/speed_test_server_domain.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/entities/speed_test_server_domain.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/domain/entities/walk_test_domain.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/entities/walk_test_domain.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/domain/enums/problem_type_enum.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/enums/complaint_type_enum.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/domain/enums/technology_enum.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/enums/technology_enum.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/domain/services/get_gis_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/services/get_gis_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/domain/services/get_ip_info_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/services/get_ip_info_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/di/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/di/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/di/repositories.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/di/repositories.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/postgres.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/postgres.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/redis.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/redis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/repository_impl/speed_test_repository_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/speed_test_repository_impl.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/repository_impl/users_repository_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/users_repository_impl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/mapper/mapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/mapper/mapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/migrations/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/migrations/env.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/migrations/versions/46a8e9db6f6e_init_database.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/migrations/versions/7a1789368d3f_seed_database.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/infrastructure/repository_impl/walk_test_repository_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/walk_test_repository_impl.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/base_db_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/base_db_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/speed_test_servers_table.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_speed_test_servers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/users_table.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_users.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/walk_test_table.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_walk_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/interfaces/api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/api/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/interfaces/api/v1/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/api/v1/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/authentication/authentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/authentication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/validation/validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/validation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/walk_test/walk_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/walk_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/interfaces/api/v2/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/api/v2/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/interfaces/api/v2/endpoints/authentication/authentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/api/v2/endpoints/authentication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/interfaces/api/v2/endpoints/validation/validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/api/v2/endpoints/validation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/interfaces/controllers/user_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/controllers/user_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/table_cell_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_cell_info.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/table_walk_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_walk_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/table_walk_test_detail.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_walk_test_detail.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/interfaces/dto/request/walk_test_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/dto/request/walk_test_request.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/README" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/migrations/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/migrations/env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/script.py.mako" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/migrations/script.py.mako" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/81825f9d7bc8_add_walktest_table.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/97192a08db2c_initial_migration.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/repositoryImpl/speed_test_repository_impl_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/repositoryImpl/speed_test_repository_impl_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/repositoryImpl/speed_test_repository_impl_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/infrastructure/repositoryImpl/speed_test_repository_impl_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/usecase/gis_test/are_all_locations_within_distance.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/application/usecase/gis_test/are_all_locations_within_distance.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +71,9 @@
     "Python Debug Server.FastAPI Docker Debug.executor": "Debug",
     "Python Debug Server.debug-core.executor": "Debug",
     "Python Debug Server.debug.executor": "Debug",
+    "Python tests.Python tests for mapper.test_date_mapper.executor": "Run",
+    "Python tests.Python tests for mapper.test_enum_mapper.executor": "Run",
+    "Python tests.Python tests for mapper.test_time_mapper.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -140,12 +98,14 @@
       <recent name="$PROJECT_DIR$/app/infrastructure" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test/application" />
+      <recent name="$PROJECT_DIR$/test/infrastructure" />
       <recent name="$PROJECT_DIR$/app/interfaces/api/v2/endpoints" />
       <recent name="$PROJECT_DIR$/app/interfaces/api/v1/endpoints" />
       <recent name="$PROJECT_DIR$/app/infrastructure" />
     </key>
   </component>
-  <component name="RunManager" selected="Python Debug Server.FastAPI Docker Debug">
+  <component name="RunManager" selected="Python tests.Python tests for mapper.test_enum_mapper">
     <configuration name="FastAPI Docker Debug" type="PyRemoteDebugConfigurationType" factoryName="Python Remote Debug">
       <module name="core" />
       <option name="PORT" value="5678" />
@@ -187,11 +147,69 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for mapper.test_date_mapper" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/infrastructure/mapper" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;mapper.test_date_mapper&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for mapper.test_enum_mapper" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/infrastructure/mapper" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;mapper.test_enum_mapper&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for mapper.test_time_mapper" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/infrastructure/mapper" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;mapper.test_time_mapper&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Docker.abcem_services" />
       <item itemvalue="FastAPI.core" />
       <item itemvalue="Python Debug Server.FastAPI Docker Debug" />
+      <item itemvalue="Python tests.Python tests for mapper.test_date_mapper" />
+      <item itemvalue="Python tests.Python tests for mapper.test_enum_mapper" />
+      <item itemvalue="Python tests.Python tests for mapper.test_time_mapper" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests for mapper.test_enum_mapper" />
+        <item itemvalue="Python tests.Python tests for mapper.test_time_mapper" />
+        <item itemvalue="Python tests.Python tests for mapper.test_date_mapper" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -225,7 +243,8 @@
       <workItem from="1740299384343" duration="35703000" />
       <workItem from="1740464835311" duration="24526000" />
       <workItem from="1740550304684" duration="13921000" />
-      <workItem from="1741085743287" duration="13222000" />
+      <workItem from="1741085743287" duration="13657000" />
+      <workItem from="1741168228749" duration="14612000" />
     </task>
     <task id="LOCAL-00001" summary="alembic integration">
       <option name="closed" value="true" />
@@ -300,7 +319,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app/infrastructure/migrations/env.py</url>
-          <line>22</line>
+          <line>21</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -340,18 +359,34 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app/infrastructure/repository_impl/walk_test_repository_impl.py</url>
-          <line>16</line>
+          <line>17</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app/interfaces/dto/request/walk_test_request.py</url>
-          <line>3</line>
+          <line>4</line>
           <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test/infrastructure/mapper/mapper.py</url>
+          <line>36</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test/infrastructure/mapper/mapper.py</url>
+          <line>41</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test/infrastructure/mapper/mapper.py</url>
+          <line>51</line>
+          <option name="timeStamp" value="44" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/core$.coverage" NAME=" Coverage Results" MODIFIED="1741186400882" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/infrastructure/mapper" />
     <SUITE FILE_PATH="coverage/core$core.coverage" NAME="core Coverage Results" MODIFIED="1740502662091" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

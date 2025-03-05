@@ -1,8 +1,8 @@
 """init database
 
-Revision ID: 46a8e9db6f6e
+Revision ID: d615c90a10ca
 Revises: 
-Create Date: 2025-02-24 06:49:38.937825
+Create Date: 2025-03-05 05:15:56.106585
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import postgresql
 
 # revision identifiers, used by Alembic.
-revision: str = '46a8e9db6f6e'
+revision: str = 'd615c90a10ca'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -39,6 +39,12 @@ def upgrade() -> None:
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('table_problematic_service',
+    sa.Column('name', sa.String(), nullable=True),
+    sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
+    sa.Column('updated_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
+    sa.PrimaryKeyConstraint('id')
+    )
+    op.create_table('table_service_type',
     sa.Column('name', sa.String(), nullable=True),
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
     sa.Column('updated_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
@@ -89,7 +95,9 @@ def upgrade() -> None:
     sa.Column('longitude', sa.Float(), nullable=True),
     sa.Column('serving_cell', sa.String(), nullable=True),
     sa.Column('serving_site', sa.String(), nullable=True),
-    sa.Column('problematic_times', sa.String(), nullable=True),
+    sa.Column('is_at_all_hours', sa.Boolean(), nullable=True),
+    sa.Column('start_time_of_issue', sa.Time(), nullable=True),
+    sa.Column('end_time_of_issue', sa.Time(), nullable=True),
     sa.Column('times_of_day', sa.String(), nullable=True),
     sa.Column('msisdn', sa.String(), nullable=True),
     sa.Column('related_tt', sa.String(), nullable=True),
@@ -99,41 +107,13 @@ def upgrade() -> None:
     sa.Column('problematic_service_id', sa.Integer(), nullable=True),
     sa.Column('walk_test_status_id', sa.Integer(), nullable=True),
     sa.Column('device_info_id', sa.String(), nullable=True),
+    sa.Column('service_type_id', sa.Integer(), nullable=False),
     sa.Column('id', sa.String(), nullable=False),
     sa.Column('updated_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
     sa.ForeignKeyConstraint(['complaint_type_id'], ['table_complaint_type.id'], ),
     sa.ForeignKeyConstraint(['device_info_id'], ['table_device_info.id'], ondelete='SET NULL'),
     sa.ForeignKeyConstraint(['problematic_service_id'], ['table_problematic_service.id'], ),
-    sa.ForeignKeyConstraint(['technology_type_id'], ['table_technology_type.id'], ),
-    sa.ForeignKeyConstraint(['walk_test_status_id'], ['table_walk_test_status.id'], ),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('ref_id')
-    )
-    op.create_table('table_walk_test_history',
-    sa.Column('ref_id', sa.String(), nullable=True),
-    sa.Column('province', sa.String(), nullable=True),
-    sa.Column('region', sa.String(), nullable=True),
-    sa.Column('city', sa.String(), nullable=True),
-    sa.Column('is_village', sa.Boolean(), nullable=True),
-    sa.Column('latitude', sa.Float(), nullable=True),
-    sa.Column('longitude', sa.Float(), nullable=True),
-    sa.Column('serving_cell', sa.String(), nullable=True),
-    sa.Column('serving_site', sa.String(), nullable=True),
-    sa.Column('problematic_times', sa.String(), nullable=True),
-    sa.Column('times_of_day', sa.String(), nullable=True),
-    sa.Column('msisdn', sa.String(), nullable=True),
-    sa.Column('related_tt', sa.String(), nullable=True),
-    sa.Column('created_at', sa.TIMESTAMP(), nullable=True),
-    sa.Column('technology_type_id', sa.Integer(), nullable=True),
-    sa.Column('complaint_type_id', sa.Integer(), nullable=True),
-    sa.Column('problematic_service_id', sa.Integer(), nullable=True),
-    sa.Column('walk_test_status_id', sa.Integer(), nullable=True),
-    sa.Column('device_info_id', sa.String(), nullable=True),
-    sa.Column('id', sa.String(), nullable=False),
-    sa.Column('updated_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
-    sa.ForeignKeyConstraint(['complaint_type_id'], ['table_complaint_type.id'], ),
-    sa.ForeignKeyConstraint(['device_info_id'], ['table_device_info.id'], ondelete='SET NULL'),
-    sa.ForeignKeyConstraint(['problematic_service_id'], ['table_problematic_service.id'], ),
+    sa.ForeignKeyConstraint(['service_type_id'], ['table_service_type.id'], ),
     sa.ForeignKeyConstraint(['technology_type_id'], ['table_technology_type.id'], ),
     sa.ForeignKeyConstraint(['walk_test_status_id'], ['table_walk_test_status.id'], ),
     sa.PrimaryKeyConstraint('id'),
@@ -179,12 +159,12 @@ def downgrade() -> None:
     op.drop_table('table_cell_info')
     op.drop_table('table_walk_test_detail')
     op.drop_table('table_voice_test')
-    op.drop_table('table_walk_test_history')
     op.drop_table('table_walk_test')
     op.drop_table('table_walk_test_status')
     op.drop_table('table_technology_type')
     op.drop_table('table_step_test_type')
     op.drop_table('table_speed_test_servers')
+    op.drop_table('table_service_type')
     op.drop_table('table_problematic_service')
     op.drop_table('table_device_info')
     op.drop_table('table_complaint_type')

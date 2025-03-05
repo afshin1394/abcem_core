@@ -3,6 +3,7 @@ from datetime import time
 from app.application.shared.command import Command
 from app.domain.enums.complaint_type_enum import ComplaintTypeEnum
 from app.domain.enums.problematic_service_enum import ProblematicServiceEnum
+from app.domain.enums.service_type_enum import ServiceTypeEnum
 from app.domain.enums.technology_enum import TechnologyEnum
 from app.domain.enums.walk_test_state_enum import WalkTestStatusEnum
 
@@ -21,11 +22,12 @@ class CreateWalkTestCommand(Command):
     start_time_of_issue: time
     end_time_of_issue: time
     msisdn: str
-    technology: TechnologyEnum
-    complaint_type: ComplaintTypeEnum
-    problematic_service: ProblematicServiceEnum
+    technology_type_id: TechnologyEnum
+    complaint_type_id: ComplaintTypeEnum
+    problematic_service_id: ProblematicServiceEnum
+    service_type_id : ServiceTypeEnum
     related_tt: str
-    status: WalkTestStatusEnum
+    walk_test_status_id: WalkTestStatusEnum
 
 
 
