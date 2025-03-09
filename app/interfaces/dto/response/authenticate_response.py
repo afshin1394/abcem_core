@@ -1,6 +1,9 @@
 from pydantic import BaseModel, Field
 
-class AuthenticateResponse(BaseModel):
+from app.interfaces.dto.success_response import BaseSuccessResponse
+
+
+class Authentication(BaseModel):
     jwt_token: str = Field(..., description="The JWT token for authenticated requests")
     refresh_token: str = Field(..., description="The token used to refresh the JWT")
 
@@ -11,3 +14,7 @@ class AuthenticateResponse(BaseModel):
                 "refresh_token": "def502009c4eb17..."
             }
         }
+
+
+class AuthenticateResponse(BaseSuccessResponse[Authentication]):
+    pass

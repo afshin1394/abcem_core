@@ -2,6 +2,8 @@
 from typing import Type, Callable, Dict, Any
 from inspect import iscoroutinefunction
 import logging
+
+
 class Mediator:
     def __init__(self):
         self._handlers: Dict[Type, Callable[[Any], Any]] = {}

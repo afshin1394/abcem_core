@@ -8,7 +8,7 @@ from app.infrastructure.services_impl.speed_test_crawler import SpeedTestServerC
 
 class SpeedTestServerListUseCase(BaseUseCase):
 
-    def __init__(self,repository: SpeedTestRepository):
+    def __init__(self, repository: SpeedTestRepository):
         self.repository = repository
 
     async def execute(self, **kwargs) -> List[SpeedTestServerDomain]:

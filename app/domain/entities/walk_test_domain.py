@@ -33,6 +33,6 @@ class WalkTestDomain:
         return (f"WalkTestDomain(ref_id={self.ref_id}, province={self.province}, region={self.region}, "
                 f"city={self.city}, is_village={self.is_village}, latitude={self.latitude}, longitude={self.longitude}, "
                 f"serving_cell={self.serving_cell}, serving_site={self.serving_site}, "
-                f"start_time_of_issue={self.start_time_of_issue},end_time_of_issue={self.end_time_of_issue}, msisdn={self.msisdn}, technology={self.technology.name}, "
-                f"complaint_type={self.complaint_type.name}, problematic_service={self.problematic_service.name}, service_type={self.service_type.name}, "
-                f"related_tt={self.related_tt}, status={self.status.name})")
+                f"start_time_of_issue={self.start_time_of_issue},end_time_of_issue={self.end_time_of_issue}, msisdn={self.msisdn}, technology={self.technology_type_id.name}, "
+                f"complaint_type={self.complaint_type_id.name}, problematic_service={self.problematic_service_id.name}, service_type_id={self.service_type_id.name}, "
+                f"related_tt={self.related_tt}, walk_test_status_id={self.walk_test_status_id.name})")

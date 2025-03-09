@@ -12,7 +12,13 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 ## Expose the port (if needed)
+# Copy the entrypoint script and make it executable
+COPY entrypoint.sh /app/entrypoint.sh
+
+RUN chmod +x /app/entrypoint.sh
+
+# Expose the port
 EXPOSE 8001
-#
-## Run the application (modify this based on your framework, e.g., Flask, FastAPI)
-CMD ["uvicorn", "app.main:app", "--reload", "--host", "0.0.0.0", "--port", "8001"]
+
+# Use the entrypoint script as the container's entrypoint
+ENTRYPOINT ["/app/entrypoint.sh"]

@@ -5,7 +5,6 @@ from sqlalchemy.dialects.postgresql import insert
 from app.infrastructure.schemas.table_speed_test_servers import TableSpeedTestServer
 from app.domain.entities.speed_test_server_domain import SpeedTestServerDomain
 from app.infrastructure.repository_impl.speed_test_repository_impl import SpeedTestRepositoryImpl
-from datetime import datetime
 
 @pytest.mark.asyncio
 async def test_upsert_servers():
@@ -21,8 +20,7 @@ async def test_upsert_servers():
             country="Country A",
             lat=12.34,
             lon=56.78,
-            host="hostA.com",
-            last_updated=     datetime.fromisoformat("2025-01-01T00:00:00")
+            host="hostA.com"
         ),
         SpeedTestServerDomain(
             id=2,
@@ -31,8 +29,7 @@ async def test_upsert_servers():
             country="Country B",
             lat=23.45,
             lon=67.89,
-            host="hostB.com",
-            last_updated=     datetime.fromisoformat("2025-01-02T00:00:00")
+            host="hostB.com"
         ),
     ]
 

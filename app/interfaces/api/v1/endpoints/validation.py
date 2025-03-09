@@ -1,12 +1,12 @@
-from fastapi import APIRouter,Depends,HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 
 from app.infrastructure.di.controllers import authentication_controller
-from app.infrastructure.di.redis_client import get_redis_instance
+from app.infrastructure.di.redis_client import get_cache
 from app.infrastructure.di.speed_test import get_speed_test
-from app.infrastructure.redis import RedisClient
+from app.infrastructure.redis import RedisCacheGateway
 from app.infrastructure.services_impl.speed_test_servers import Speedtest, SpeedtestException
 from app.interfaces.controllers.authentication_controller import AuthenticationController
-from app.interfaces.dto.response.server_response import ServersResponse, SpeedTestServerResponse
+from app.interfaces.dto.response.server_response import SpeedTestServerResponse, SpeedTestServerResponse
 
 router_v1 = APIRouter(
     prefix="/validation",
@@ -14,8 +14,8 @@ router_v1 = APIRouter(
 )
 
 
-@router_v1.get("/servers", response_model=ServersResponse)
-async def get_servers(speed_test: Speedtest = Depends(get_speed_test)) -> ServersResponse:
+@router_v1.get("/servers", response_model=SpeedTestServerResponse)
+async def get_servers(speed_test: Speedtest = Depends(get_speed_test)) -> SpeedTestServerResponse:
     try:
         servers_dict = speed_test.get_servers()
     except SpeedtestException as e:
@@ -32,7 +32,9 @@ async def get_servers(speed_test: Speedtest = Depends(get_speed_test)) -> Server
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Data validation error: {e}")
 
-    return ServersResponse(servers=validated_servers)
+    return SpeedTestServerResponse(servers=validated_servers)
+
+
 @router_v1.get("/validate_ip")
 async def get_ip_info(controller: AuthenticationController = Depends(authentication_controller)):
     pass
@@ -48,12 +50,10 @@ async def get_ip_info(controller: AuthenticationController = Depends(authenticat
     # except Exception as e:
     #     # Handle any other unexpected errors
     #     raise HTTPException(status_code=500, detail=str(e))
-    #implement in other service
+    # implement in other service
+
 
 @router_v1.post("/test_redis")
-async def validate_location(redis_client : RedisClient = Depends(get_redis_instance)):
-    await redis_client.set("test","1")
+async def validate_location(redis_client: RedisCacheGateway = Depends(get_cache)):
+    await redis_client.set("test", "1")
     return await redis_client.get("test")
-
-
-

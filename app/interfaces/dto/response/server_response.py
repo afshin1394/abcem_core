@@ -1,8 +1,10 @@
 from pydantic import BaseModel
 from typing import List, Dict, Optional
 
+from app.interfaces.dto.success_response import BaseSuccessResponse
 
-class SpeedTestServerResponse(BaseModel):
+
+class SpeedTestServer(BaseModel):
     id: Optional[str]
     sponsor: Optional[str]
     name: Optional[str]
@@ -13,13 +15,6 @@ class SpeedTestServerResponse(BaseModel):
     host: Optional[str]
     d: Optional[float]
     cc: Optional[str]
-
-    # Include other relevant fields as needed
-
-# Since the keys are floats (distances), but JSON keys must be strings,
-# it's better to represent the data as a list rather than a dict.
-class ServersResponse(BaseModel):
-    servers: List[SpeedTestServerResponse]
 
     class Config:
         json_schema_extra = {
@@ -38,3 +33,7 @@ class ServersResponse(BaseModel):
                 "host": "it3.speedtest.aruba.it.prod.hosts.ooklaserver.net:8080",
             }
         }
+
+
+class SpeedTestServerResponse(BaseSuccessResponse[List[SpeedTestServer]]):
+    pass

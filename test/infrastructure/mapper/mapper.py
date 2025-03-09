@@ -1,7 +1,8 @@
 from dataclasses import dataclass
 
 import pytest
-from datetime import  time
+import asyncio
+from datetime import time
 
 from sqlalchemy import Column, Integer
 
@@ -17,16 +18,22 @@ from app.infrastructure.schemas.table_walk_test import TableWalkTest
 
 @dataclass
 class A:
-   name : str
-   datetime : time
+    name: str
+    datetime: time
+
+
 @dataclass
 class B:
-   name : str
-   datetime : time
+    name: str
+    datetime: time
+
+
 @dataclass
 class C:
-    name : str
-    type : ServiceTypeEnum
+    name: str
+    type: ServiceTypeEnum
+
+
 @dataclass
 class D:
     name = str
@@ -35,17 +42,20 @@ class D:
 
 @pytest.mark.asyncio
 async def test_date_mapper():
-    a : A = A(name="afshin", datetime=time.fromisoformat("10:18:25"))
-    print(await map_models(a,B))
+    a: A = A(name="afshin", datetime=time.fromisoformat("10:18:25"))
+    print(await map_models(a, B))
+
 
 @pytest.mark.asyncio
 async def test_time_mapper():
-    a : A = A(name="ali", datetime=time.fromisoformat("00:02:334Z"))
-    print(await map_models(a,B))
+    a: A = A(name="ali", datetime=time.fromisoformat("00:02:334Z"))
+    print(await map_models(a, B))
+
+
 @pytest.mark.asyncio
 async def test_enum_mapper():
-    c : C = C(name="ali", type=ServiceTypeEnum.FDD)
-    print(await map_models(c,D))
+    c: C = C(name="ali", type=ServiceTypeEnum.FDD)
+    print(await map_models(c, D))
 
 
 @pytest.mark.asyncio
@@ -72,4 +82,4 @@ async def test_enum_mapper():
         related_tt="string",
         walk_test_status_id=WalkTestStatusEnum.created  # Enum
     )
-    print(await map_models(walk_test_domain,TableWalkTest))
+    print(await map_models(walk_test_domain, TableWalkTest))

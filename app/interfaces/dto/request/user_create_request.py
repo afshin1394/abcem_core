@@ -15,6 +15,6 @@ class CreateUserRequest(BaseModel):
                 "age": "21"
             },
             "gender": {
-                "age": "male"
+                "gender": "male"
             }
         }
