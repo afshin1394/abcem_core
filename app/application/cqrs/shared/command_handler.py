@@ -3,6 +3,9 @@
 from abc import ABC, abstractmethod
 from typing import Generic, TypeVar, Optional
 
+from fastapi import Depends
+
+from app.domain.cache.cache_gateway import CacheGateway
 from app.domain.events.event import Event
 
 
@@ -25,6 +28,10 @@ class CommandHandler(ABC, Generic[C, E]):
         E: A type variable bound to an Event subclass or None.
     """
 
+    def __init__(self, cache_gateway: CacheGateway):
+        self.cache_gateway = cache_gateway
+
+
     @abstractmethod
     async def handle(self, command: C) -> Optional[E]:
         """
@@ -37,3 +44,11 @@ class CommandHandler(ABC, Generic[C, E]):
             Optional[E]: The resulting event or None.
         """
         pass
+
+    async def execute(self, command, cache_keys_to_invalidate: Optional[list[str]] = None):
+        """Executes the command and invalidates cache if needed"""
+        await self.handle(command)
+
+        # Invalidate cache
+        if cache_keys_to_invalidate:
+            await self.cache_gateway.invalidate_keys(*cache_keys_to_invalidate)

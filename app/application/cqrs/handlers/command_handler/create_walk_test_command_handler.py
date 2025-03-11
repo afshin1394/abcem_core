@@ -1,12 +1,14 @@
 from app.application.cqrs.commands.create_walk_test_command import CreateWalkTestCommand
 from app.application.cqrs.shared.command_handler import CommandHandler
+from app.domain.cache.cache_gateway import CacheGateway
 from app.domain.entities.walk_test_domain import WalkTestDomain
 from app.domain.repositories.write.write_walk_test_repository import WriteWalkTestRepository
 from app.infrastructure.mapper.mapper import map_models
 
 
 class CreateWalkTestCommandHandler(CommandHandler):
-    def __init__(self, write_walk_test_repository: WriteWalkTestRepository):
+    def __init__(self, write_walk_test_repository: WriteWalkTestRepository, cache_gateway: CacheGateway):
+        super().__init__(cache_gateway)
         self.write_walk_test_repository = write_walk_test_repository
 
     async def handle(self, command: CreateWalkTestCommand):

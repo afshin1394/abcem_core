@@ -1,5 +1,6 @@
 from app.application.cqrs.commands.authenticate_command import AuthenticateCommand
 from app.application.cqrs.shared.command_handler import CommandHandler, C
+from app.domain.cache.cache_gateway import CacheGateway
 from app.domain.events.authenticated_event import AuthenticatedEvent
 from app.domain.services.get_ip_info_service import GetIpInfoService
 
@@ -18,7 +19,8 @@ def generate_jwt_token(msisdn: str) -> str:
 
 class AuthenticateCommandHandler(CommandHandler):
 
-    def __init__(self, isp_service: GetIpInfoService):
+    def __init__(self, isp_service: GetIpInfoService, cache_gateway: CacheGateway):
+        super().__init__(cache_gateway)
         self.isp_service = isp_service
 
     async def handle(self, command: AuthenticateCommand) -> AuthenticatedEvent:

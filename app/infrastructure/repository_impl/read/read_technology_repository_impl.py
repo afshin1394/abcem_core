@@ -16,7 +16,7 @@ class ReadTechnologyRepositoryImpl(ReadTechnologyRepository):
 
     async def get_all(self) -> List[TechnologyTypeDomain]:
         result = await self.db.execute(
-            select(TableTechnologyType)
+            select(TableTechnologyType).order_by(TableTechnologyType.id.asc())
         )
         records = result.scalars().all()
         technology_list = await map_models_list(records, TechnologyTypeDomain)

@@ -1,4 +1,4 @@
-from typing import Any, List
+from typing import  List
 
 from app.application.cqrs.queries.get_all_technology_types_query import GetAllTechnologyTypesQuery
 from app.application.mediator import Mediator
@@ -11,4 +11,4 @@ class GetAllTechnologyTypesUseCase(BaseUseCase):
         self.mediator = mediator
 
     async def execute(self, **kwargs) -> List[TechnologyTypeDomain]:
-        return await self.mediator.send(GetAllTechnologyTypesQuery)
+        return await self.mediator.send(GetAllTechnologyTypesQuery())

@@ -3,14 +3,24 @@ from fastapi import Depends
 from app.application.mediator import Mediator
 from app.application.usecase.create_user_usecase import CreateUserUseCase
 from app.application.usecase.create_walk_test_usecase import CreateWalkTestUseCase
-from app.application.usecase.get_all_technology_types_usecase import GetAllTechnologyTypesUseCase
+from app.application.usecase.get_all_complaint_types_usecase import GetAllComplaintTypesUseCase
+from app.application.usecase.get_all_problematic_service_types_usecase import GetAllProblematicServiceTypesUseCase
+from app.application.usecase.get_all_service_type_usecase import GetAllServiceTypeUseCase
+from app.application.usecase.get_all_technology_type_usecase import GetAllTechnologyTypesUseCase
+from app.application.usecase.get_all_test_step_type_usecase import GetAllTestStepTypeUseCase
 from app.application.usecase.get_all_walk_test_by_msisdn_usecase import GetAllWalkTestByMSISDNUseCase
 from app.application.usecase.speed_test_server_list_usecase import SpeedTestServerListUseCase
 from app.infrastructure.di.mediator import get_mediator
 from app.infrastructure.di.usecases import get_create_user_use_case, get_speed_test_use_case, \
-    get_create_walk_test_use_case, get_all_walk_test_by_msisdn_use_case, get_all_technology_type_use_case
+    get_create_walk_test_use_case, get_all_walk_test_by_msisdn_use_case, get_all_technology_type_use_case, \
+    get_all_complaint_type_use_case, get_all_problematic_service_type_use_case, get_all_service_type_use_case, \
+    get_all_test_step_type_use_case
 from app.interfaces.controllers.authentication_controller import AuthenticationController
+from app.interfaces.controllers.complaint_type_controller import ComplaintTypeController
+from app.interfaces.controllers.problematic_service_type_controller import ProblematicServiceTypeController
+from app.interfaces.controllers.service_type_controller import ServiceTypeController
 from app.interfaces.controllers.technology_type_controller import TechnologyTypeController
+from app.interfaces.controllers.test_step_type_controller import TestStepTypeController
 from app.interfaces.controllers.user_controller import UserController
 from app.interfaces.controllers.walk_test_controller import WalkTestController
 
@@ -39,4 +49,25 @@ async def get_walk_test_controller(
 async def get_technology_type_controller(technology_type_use_case: GetAllTechnologyTypesUseCase = Depends(get_all_technology_type_use_case)) -> TechnologyTypeController:
     return TechnologyTypeController(
         get_all_technology_types_use_case=technology_type_use_case
+    )
+
+async def get_all_complaint_type_controller(complaint_type_use_case: GetAllComplaintTypesUseCase = Depends(get_all_complaint_type_use_case)) -> ComplaintTypeController:
+    return ComplaintTypeController(
+        get_all_complaint_type_use_case=complaint_type_use_case
+    )
+
+
+async def get_all_problematic_service_type_controller(problematic_service_type_use_case: GetAllProblematicServiceTypesUseCase = Depends(get_all_problematic_service_type_use_case)) -> ProblematicServiceTypeController:
+    return ProblematicServiceTypeController(
+        get_all_problematic_service_types_use_case=problematic_service_type_use_case
+    )
+
+async def get_all_service_type_controller(service_type_use_case: GetAllServiceTypeUseCase = Depends(get_all_service_type_use_case)) -> ServiceTypeController:
+    return ServiceTypeController(
+      get_all_service_type_use_case = service_type_use_case
+    )
+
+async def get_all_test_step_type_controller(test_step_type_use_case: GetAllTestStepTypeUseCase = Depends(get_all_test_step_type_use_case)) -> TestStepTypeController:
+    return TestStepTypeController(
+      get_all_test_step_type_use_case = test_step_type_use_case
     )

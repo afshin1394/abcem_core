@@ -1,4 +1,4 @@
-from app.application.usecase.get_all_technology_types_usecase import GetAllTechnologyTypesUseCase
+from app.application.usecase.get_all_technology_type_usecase import GetAllTechnologyTypesUseCase
 from app.infrastructure.mapper.mapper import map_models_list
 from app.interfaces.dto.response.technology_type_response import TechnologyTypeResponse, TechnologyType
 

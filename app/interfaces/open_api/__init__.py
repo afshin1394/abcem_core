@@ -63,15 +63,16 @@ def custom_openapi(app: FastAPI):
                     }
 
     # ----------------------------------------------------------------------
-    # 4. Define a base success response schema (e.g., BaseSuccessResponse)
+    # 4. Define a base success response schema (BaseSuccessResponse) with latency
     # ----------------------------------------------------------------------
     custom_success_schema = {
         "type": "object",
         "properties": {
             "status_code": {"type": "integer"},
+            "latency": {"type": "number", "format": "float", "description": "Response time in seconds"},
             "result": {}
         },
-        "required": ["status_code", "result"]
+        "required": ["status_code", "latency", "result"]
     }
     openapi_schema["components"]["schemas"]["BaseSuccessResponse"] = custom_success_schema
 
@@ -91,8 +92,8 @@ def custom_openapi(app: FastAPI):
                                 },
                                 "example": {
                                     "status_code": 200,
-                                    "result": {
-                                    }
+                                    "latency": 0.123,  # Example latency value
+                                    "result": {}
                                 }
                             }
                         },

@@ -12,4 +12,5 @@ class BaseSuccessResponse(GenericModel, Generic[DataT]):
     and a 'result' that can be any type or model.
     """
     status_code: int = Field(200, description="HTTP status code, defaults to 200")
+    latency: Optional[float] = Field(0,description="Latency (in seconds)")
     result: Optional[DataT] = Field(description="Actual data returned by the endpoint")

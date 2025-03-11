@@ -5,8 +5,8 @@ from app.interfaces.controllers.technology_type_controller import TechnologyType
 from app.interfaces.dto.response.technology_type_response import TechnologyTypeResponse
 
 router_v1 = APIRouter(
-    prefix="/technology",
-    tags=["technology"]
+    prefix="/technology_type",
+    tags=["technology_type"]
 )
 
 
