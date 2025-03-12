@@ -1,4 +1,5 @@
 from datetime import time
+from typing import Optional
 
 from app.application.cqrs.shared.command import Command
 from app.domain.enums.complaint_type_enum import ComplaintTypeEnum
@@ -19,8 +20,8 @@ class CreateWalkTestCommand(Command):
     serving_cell: str
     serving_site: str
     is_at_all_hours: bool
-    start_time_of_issue: time
-    end_time_of_issue: time
+    start_time_of_issue: Optional[time]
+    end_time_of_issue: Optional[time]
     msisdn: str
     technology_type_id: TechnologyEnum
     complaint_type_id: ComplaintTypeEnum

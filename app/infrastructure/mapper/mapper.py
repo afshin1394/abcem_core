@@ -12,18 +12,24 @@ U = TypeVar("U")
 
 
 def cast_value(target_type: Type, value: Any) -> Any:
-    """Casts the given value to the target type, with special handling for Enums and SQLAlchemy column types."""
+    """Casts the given value to the target type, with special handling for Enums and SQLAlchemy column types.
 
-    # If target_type is datetime module, use datetime.datetime instead
+    If value is None, returns None without performing any cast.
+    """
+    # Do not attempt to cast None values.
+    if value is None:
+        return None
+
+    # If target_type is datetime module, use datetime.datetime instead.
     if target_type == datetime:
         target_type = datetime.datetime
 
-    # If value is already an instance of target_type, return it directly
+    # If value is already an instance of target_type, return it directly.
     if isinstance(value, target_type):
         return value
 
     # Handle Enum -> Corresponding SQLAlchemy Type
-    print("isinstance(value, Enum)"+isinstance(value, Enum).__str__())
+    print("isinstance(value, Enum)" + str(isinstance(value, Enum)))
     if isinstance(value, Enum):
         if isinstance(value.value, int):
             return int(value.value)  # Convert Enum(int) -> Integer
@@ -43,7 +49,7 @@ def cast_value(target_type: Type, value: Any) -> Any:
         except ValueError:
             raise ValueError(f"Invalid value {value} for Enum {target_type}")
 
-    # Special handling for datetime conversion
+    # Special handling for datetime conversion.
     if target_type == datetime.datetime:
         if isinstance(value, str):
             try:
@@ -64,11 +70,11 @@ def cast_value(target_type: Type, value: Any) -> Any:
         Boolean: bool,
     }
 
-    # If the target type is a SQLAlchemy type, map it to Python type
+    # If the target type is a SQLAlchemy type, map it to Python type.
     if target_type in sqlalchemy_type_mapping:
         target_type = sqlalchemy_type_mapping[target_type]
 
-    # Default: attempt to cast the value to the target type
+    # Default: attempt to cast the value to the target type.
     try:
         return target_type(value)
     except Exception as e:
@@ -103,8 +109,6 @@ async def map_models(source: T, target_class: Type[U]) -> U:
         for attr, value in source_attrs.items():
             if attr in target_type_hints:  # Check if the target has the same attribute
                 target_type = target_type_hints[attr]
-
-                # Convert Enums or other types as needed
                 casted_value = cast_value(target_type, value)
                 init_args[attr] = casted_value
 
@@ -114,8 +118,6 @@ async def map_models(source: T, target_class: Type[U]) -> U:
         for attr, value in source_attrs.items():
             if attr in target_fields:  # Check if the target has the same attribute
                 target_type = target_fields[attr]
-
-                # Convert Enums or other types as needed
                 casted_value = cast_value(target_type, value)
                 init_args[attr] = casted_value
 
@@ -130,22 +132,15 @@ async def map_models_list(source_list: Sequence[T], target_class: Type[U]) -> Li
     """
     Maps each element of a sequence of source objects (type T) to a new instance
     of target_class (type U), returning a list (Sequence[U]).
-
-    :param source_list: A sequence of source objects to map.
-    :param target_class: The class (or possibly a generic like List[SomeClass])
-                        to which each source object should be mapped.
-    :return: A list (Sequence[U]) of new target_class instances, mapped from the source objects.
     """
-    # Safely extract the "real" class if a generic (like List[Customer]) was passed
+    # Safely extract the "real" class if a generic (like List[Customer]) was passed.
     origin = get_origin(target_class)
     if origin is not None:
-        # If target_class is something like List[Customer]
-        # then get_args(target_class) should be (Customer,)
+        # If target_class is something like List[Customer],
+        # then get_args(target_class) should be (Customer,).
         actual_class = get_args(target_class)[0]
     else:
-        # If target_class is already a concrete class like Customer
+        # If target_class is already a concrete class like Customer.
         actual_class = target_class
 
-    # Use the existing map_models(...) function for each source in source_list
     return [await map_models(source, actual_class) for source in source_list]
-

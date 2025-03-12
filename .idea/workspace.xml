@@ -5,74 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32495f57-93b2-4593-a15d-d4c5d0910bb9" name="Changes" comment="alembic integration">
-      <change afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/query_handler/get_all_complaint_type_query_handler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/query_handler/get_all_problematic_service_type_query_handler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/query_handler/get_all_service_type_query_handler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/query_handler/get_all_test_step_type_query_handler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/cqrs/queries/get_all_complaint_type_query.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/cqrs/queries/get_all_problematic_service_type_query.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/cqrs/queries/get_all_service_type_query.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/cqrs/queries/get_all_test_step_type_query.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/usecase/get_all_complaint_types_usecase.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/usecase/get_all_problematic_service_types_usecase.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/usecase/get_all_service_type_usecase.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/usecase/get_all_test_step_type_usecase.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/entities/complaint_type_domain.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/entities/problematic_service_domain.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/entities/service_type_domain.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/entities/step_test_type_domain.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/repositories/read/read_complaint_type_repository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/repositories/read/read_problematic_service_repository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/repositories/read/read_service_type_repository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/repositories/read/read_test_step_type_repository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/read/read_complaint_type_repository_impl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/read/read_problematic_service_repository_impl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/read/read_service_type_repsitory_impl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/read/read_test_step_type_repositroy_impl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/complaint_type.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/problematic_service_type.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/service_type.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/test_step_type.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/controllers/complaint_type_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/controllers/problematic_service_type_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/controllers/service_type_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/controllers/test_step_type_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/dto/response/complaint_type_response.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/dto/response/problematic_service_response.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/dto/response/service_type_response.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/dto/response/test_step_type_response.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/interface/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/interface/check_latency.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.docker" beforeDir="false" afterPath="$PROJECT_DIR$/.env.docker" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/core.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/core.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic.ini" beforeDir="false" afterPath="$PROJECT_DIR$/alembic.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/application/cqrs/handlers/command_handler/authenticate_command_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/command_handler/authenticate_command_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/application/cqrs/handlers/command_handler/create_user_command_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/command_handler/create_user_command_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/application/cqrs/handlers/command_handler/create_walk_test_command_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/command_handler/create_walk_test_command_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/application/cqrs/handlers/query_handler/get_all_technology_types_query_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/query_handler/get_all_technology_types_query_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/application/cqrs/handlers/query_handler/get_walk_test_by_msisdn_query_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/query_handler/get_walk_test_by_msisdn_query_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/cqrs/commands/create_walk_test_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/cqrs/commands/create_walk_test_command.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/application/cqrs/shared/command_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/cqrs/shared/command_handler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/application/cqrs/shared/query_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/cqrs/shared/query_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/application/usecase/get_all_technology_types_usecase.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/usecase/get_all_technology_type_usecase.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/di/controllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/di/controllers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/usecase/base_use_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/usecase/base_use_case.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/usecase/create_walk_test_usecase.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/usecase/create_walk_test_usecase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/domain/entities/walk_test_domain.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/entities/walk_test_domain.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/infrastructure/di/mediator.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/di/mediator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/di/repositories.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/di/repositories.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/di/usecases.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/di/usecases.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/repository_impl/read/read_technology_repository_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/read/read_technology_repository_impl.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/repository_impl/read/read_walk_test_repository_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/read/read_walk_test_repository_impl.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/interfaces/api/v1/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/api/v1/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/technology.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/technology_type.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/interfaces/controllers/technology_type_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/controllers/technology_type_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/interfaces/dto/success_response.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/dto/success_response.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/interfaces/open_api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/open_api/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/mapper/mapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/mapper/mapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/migrations/versions/a0cfefe5e051_seed_database.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/migrations/versions/a0cfefe5e051_seed_database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/table_walk_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_walk_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/controllers/walk_test_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/controllers/walk_test_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/dto/request/get_walk_test_by_msisdn_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/dto/request/get_walk_test_by_msisdn_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/dto/request/walk_test_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/dto/request/walk_test_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/dto/response/walk_test_by_msisdn_response.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/dto/response/walk_test_by_msisdn_response.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrypoint.sh" beforeDir="false" afterPath="$PROJECT_DIR$/entrypoint.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,30 +48,30 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2sfowG5uPSmyDRyLdXGRdagSTqG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.Python tests for check_latency.test_json_endpoint_latency.executor": "Run",
-    "Python tests.Python tests for check_latency.test_plain_endpoint_no_modification.executor": "Run",
-    "Python tests.Python tests for mapper.test_enum_mapper.executor": "Debug",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests for check_latency.test_json_endpoint_latency.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for check_latency.test_plain_endpoint_no_modification.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for mapper.test_enum_mapper.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/infrastructure" />
@@ -312,7 +260,8 @@
       <workItem from="1741085743287" duration="13657000" />
       <workItem from="1741168228749" duration="14612000" />
       <workItem from="1741508327479" duration="5194000" />
-      <workItem from="1741595302826" duration="31527000" />
+      <workItem from="1741595302826" duration="31613000" />
+      <workItem from="1741761479001" duration="14916000" />
     </task>
     <task id="LOCAL-00001" summary="alembic integration">
       <option name="closed" value="true" />

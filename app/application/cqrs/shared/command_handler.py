@@ -45,10 +45,12 @@ class CommandHandler(ABC, Generic[C, E]):
         """
         pass
 
-    async def execute(self, command, cache_keys_to_invalidate: Optional[list[str]] = None):
+    async def __call__(self, command, cache_keys_to_invalidate: Optional[list[str]] = None) -> Optional[E]:
         """Executes the command and invalidates cache if needed"""
-        await self.handle(command)
+        result = await self.handle(command)
 
         # Invalidate cache
         if cache_keys_to_invalidate:
             await self.cache_gateway.invalidate_keys(*cache_keys_to_invalidate)
+
+        return result

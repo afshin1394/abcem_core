@@ -1,6 +1,7 @@
-from typing import List
+from datetime import time
+from typing import List, Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from app.domain.enums.complaint_type_enum import ComplaintTypeEnum
 from app.domain.enums.problematic_service_enum import ProblematicServiceEnum
@@ -19,6 +20,9 @@ class WalkTestByMSISDN(BaseModel):
     serving_cell: str
     serving_site: str
     msisdn: str
+    is_at_all_hours : bool
+    start_time_of_issue: Optional[time] = Field(None, alias='startTimeOfIssue')
+    end_time_of_issue: Optional[time] = Field(None, alias='endTimeOfIssue')
     technology_type_id: TechnologyEnum
     complaint_type_id: ComplaintTypeEnum
     problematic_service_id: ProblematicServiceEnum

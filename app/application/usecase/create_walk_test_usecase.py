@@ -17,9 +17,6 @@ class CreateWalkTestUseCase(BaseUseCase):
         if isinstance(create_walk_test_request, WalkTestRequest):
             print("walk_test_request" + create_walk_test_request.__str__())
             walk_test_command = await map_models(create_walk_test_request, CreateWalkTestCommand)
-            await self.cache_gateway.set(walk_test_command.msisdn, walk_test_command.walk_test_status_id,
-                                         3 * 24 * 3600)
-            print("walk_test_command" + walk_test_command.__str__())
             await self.mediator.send(walk_test_command)
             return "created"
         else:

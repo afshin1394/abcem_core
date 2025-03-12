@@ -49,18 +49,18 @@ def get_mediator(
 ) -> Mediator:
     # commands
     mediator = Mediator()
-    mediator.register_handler(AuthenticateCommand, AuthenticateCommandHandler(ip_info_service,cache_gateway=cache_gateway).handle)
-    mediator.register_handler(CreateUserCommand, CreateUserCommandHandler(users_repository,cache_gateway=cache_gateway).handle)
-    mediator.register_handler(CreateWalkTestCommand, CreateWalkTestCommandHandler(write_walk_test_repository,cache_gateway=cache_gateway).handle)
+    mediator.register_handler(AuthenticateCommand, AuthenticateCommandHandler(ip_info_service,cache_gateway=cache_gateway))
+    mediator.register_handler(CreateUserCommand, CreateUserCommandHandler(users_repository,cache_gateway=cache_gateway))
+    mediator.register_handler(CreateWalkTestCommand, CreateWalkTestCommandHandler(write_walk_test_repository,cache_gateway=cache_gateway))
 
     # queries
     mediator.register_handler(GetWalkTestByMSISDNQuery,
-                              GetWalkTestByMSISDNQueryHandler(read_walk_test_repository,cache_gateway=cache_gateway,expire=3600).handle)
+                              GetWalkTestByMSISDNQueryHandler(read_walk_test_repository,cache_gateway=cache_gateway,expire=3600))
     mediator.register_handler(GetAllTechnologyTypesQuery,
-                              GetAllTechnologyTypesQueryHandler(read_technology_repository,cache_gateway=cache_gateway,expire=3600).handle)
-    mediator.register_handler(GetAllComplaintTypeQuery,GetAllComplaintTypeQueryHandler(read_complaint_type_repository,cache_gateway=cache_gateway,expire=3600).handle)
-    mediator.register_handler(GetAllProblematicServiceTypeQuery,GetAllProblematicServiceTypeQueryHandler(read_problematic_service_repository,cache_gateway=cache_gateway,expire=3600).handle)
-    mediator.register_handler(GetAllServiceTypeQuery,GetAllServiceTypeQueryHandler(read_service_type_repository,cache_gateway=cache_gateway,expire=3600).handle)
-    mediator.register_handler(GetAllTestStepTypeQuery,GetAllTestStepTypeQueryHandler(read_test_step_type_repository,cache_gateway=cache_gateway,expire=3600).handle)
+                              GetAllTechnologyTypesQueryHandler(read_technology_repository,cache_gateway=cache_gateway,expire=3600))
+    mediator.register_handler(GetAllComplaintTypeQuery,GetAllComplaintTypeQueryHandler(read_complaint_type_repository,cache_gateway=cache_gateway,expire=3600))
+    mediator.register_handler(GetAllProblematicServiceTypeQuery,GetAllProblematicServiceTypeQueryHandler(read_problematic_service_repository,cache_gateway=cache_gateway,expire=3600))
+    mediator.register_handler(GetAllServiceTypeQuery,GetAllServiceTypeQueryHandler(read_service_type_repository,cache_gateway=cache_gateway,expire=3600))
+    mediator.register_handler(GetAllTestStepTypeQuery,GetAllTestStepTypeQueryHandler(read_test_step_type_repository,cache_gateway=cache_gateway,expire=3600))
 
     return mediator

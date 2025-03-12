@@ -32,7 +32,8 @@ class QueryHandler(ABC, Generic[Q, R]):
               """
         pass
 
-    async def execute(self, query) -> dict:
+    async def __call__(self, query) -> dict:
+        print("query"+query)
         """Executes the query with optional caching"""
         cache_key = f"query:{query.__class__.__name__}:{json.dumps(query.dict(), sort_keys=True)}"
 

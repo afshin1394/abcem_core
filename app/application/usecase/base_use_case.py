@@ -13,11 +13,11 @@ class BaseUseCase(ABC):
     Provides a pipeline for executing use cases with logging and exception handling.
     """
 
-    async def run(self, **kwargs) -> Any:
+    async def __call__(self, *args, **kwargs) -> Any:
         """
-        Executes the use case pipeline.
-        Handles logging and exceptions automatically.
-        """
+               Executes the use case pipeline.
+               Handles logging and exceptions automatically.
+               """
         try:
             # Log the start of the use case
             logger.info(f"Starting use case: {self.__class__.__name__}")
@@ -35,6 +35,8 @@ class BaseUseCase(ABC):
             # Log the exception
             logger.error(f"Error in use case {self.__class__.__name__}: {str(e)}", exc_info=True)
             raise  # Re-raise the exception for further handling
+
+
 
     @abstractmethod
     async def execute(self, **kwargs) -> Any:

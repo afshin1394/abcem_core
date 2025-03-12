@@ -11,7 +11,6 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.exceptions import RequestValidationError
 
 from app.interfaces.dto.error_response import ErrorResponse
-from app.interfaces.dto.success_response import BaseSuccessResponse
 from app.interfaces.open_api import custom_openapi
 
 
@@ -60,20 +59,7 @@ async def general_exception_handler(request: Request, exc: Exception):
             "errors": [str(exc)]
         },
     )
-@app.middleware("http")
-async def add_process_time_header(request: Request, call_next):
-    start_time = time.perf_counter()  # Use perf_counter for high resolution
-    response = await call_next(request)
-    process_time = time.perf_counter() - start_time
-    response.headers["X-Process-Time"] = f"{process_time:.4f}"
-    print("isinstance(response, BaseSuccessResponse)"+isinstance(response, BaseSuccessResponse).__str__())
 
-    if isinstance(response, BaseSuccessResponse):
-        success_response = cast(BaseSuccessResponse, response)
-        success_response.latency = process_time
-        return success_response
-
-    return response
 
 app.include_router(router_all)
 app.openapi_schema = custom_openapi(app=app)

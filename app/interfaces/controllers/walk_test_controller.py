@@ -14,7 +14,7 @@ class WalkTestController:
         self.get_all_walk_test_by_msisdn_use_case = get_all_walk_test_by_msisdn_use_case
 
     async def create_walk_test(self, walk_test_request: WalkTestRequest) -> WalkTestCreatedResponse:
-        walk_test_data = await self.create_walk_test_use_case.execute(
+        walk_test_data = await self.create_walk_test_use_case(
             create_walk_test_request=walk_test_request
         )
 

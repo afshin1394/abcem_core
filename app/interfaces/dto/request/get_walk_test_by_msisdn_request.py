@@ -9,5 +9,4 @@ class GetWalkTestByMSISDNRequest(BaseModel):
             "msisdn": {
                 "msisdn": "09351111111"
             },
-
         }

@@ -1,3 +1,6 @@
+from datetime import time
+from typing import Optional
+
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, String, TIMESTAMP, Boolean, Float, ForeignKey, Integer, Time
 from sqlalchemy.sql import func
@@ -7,8 +10,10 @@ from .table_walk_test_detail import TableWalkTestDetail
 from .table_technology_type import TableTechnologyType
 from .table_complaint_type import TableComplaintType
 from .table_problematic_service import TableProblematicService
-from .table_walk_test_status import TableWalkTestStatus
 from .table_service_type import TableServiceType
+from .table_problematic_service import TableProblematicService
+from .table_walk_test_status import TableWalkTestStatus
+
 
 
 class TableWalkTest(BaseDBModelWithUUIDPK):
@@ -23,8 +28,8 @@ class TableWalkTest(BaseDBModelWithUUIDPK):
     serving_cell = Column(String, nullable=True)
     serving_site = Column(String, nullable=True)
     is_at_all_hours = Column(Boolean, nullable=True)
-    start_time_of_issue = Column(Time, nullable=True)
-    end_time_of_issue = Column(Time, nullable=True)
+    start_time_of_issue: Optional[time] = Column(Time, nullable=True)
+    end_time_of_issue: Optional[time] = Column(Time, nullable=True)
     times_of_day = Column(String, nullable=True)
     msisdn = Column(String, nullable=True)
     related_tt = Column(String, nullable=True)

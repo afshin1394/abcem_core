@@ -1,5 +1,7 @@
 from dataclasses import dataclass
 from datetime import time
+from typing import Optional
+
 from app.domain.enums.complaint_type_enum import ComplaintTypeEnum
 from app.domain.enums.problematic_service_enum import ProblematicServiceEnum
 from app.domain.enums.service_type_enum import ServiceTypeEnum
@@ -19,8 +21,8 @@ class WalkTestDomain:
     serving_cell: str
     serving_site: str
     is_at_all_hours : bool
-    start_time_of_issue: time
-    end_time_of_issue: time
+    start_time_of_issue: Optional[time]
+    end_time_of_issue: Optional[time]
     msisdn: str
     technology_type_id: TechnologyEnum
     complaint_type_id: ComplaintTypeEnum
