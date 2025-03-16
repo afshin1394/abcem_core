@@ -33,10 +33,10 @@ class QueryHandler(ABC, Generic[Q, R]):
         pass
 
     async def __call__(self, query) -> dict:
-        print("query"+query)
-        """Executes the query with optional caching"""
+        print(f"query {query}")
+        # Create a cache key from the query
         cache_key = f"query:{query.__class__.__name__}:{json.dumps(query.dict(), sort_keys=True)}"
-
+        print(f"cache key {cache_key}")
         # Check cache
         if self.cache_enabled:
             cached_result = await self.cache_gateway.get(cache_key)
@@ -46,8 +46,11 @@ class QueryHandler(ABC, Generic[Q, R]):
         # Execute query
         result = await self.handle(query)
 
-        # Store in cache
+        # Store in cache with custom serialization
         if self.cache_enabled:
-            await self.cache_gateway.set(cache_key, json.dumps(result), expiry=self.expire)  # Cache for 5 minutes
-
+            await self.cache_gateway.set(
+                cache_key,
+                json.dumps(result, default=lambda o: o.__dict__),
+                expire=self.expire
+            )
         return result

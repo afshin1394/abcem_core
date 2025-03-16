@@ -8,6 +8,7 @@ from app.interfaces.api.v1.endpoints.complaint_type import router_v1 as complain
 from app.interfaces.api.v1.endpoints.problematic_service_type import router_v1 as problematic_router
 from app.interfaces.api.v1.endpoints.service_type import router_v1 as service_type_router
 from app.interfaces.api.v1.endpoints.test_step_type import router_v1 as test_step_type_router
+from app.interfaces.api.v1.endpoints.device_info import router_v1 as device_info_router
 
 
 router_v1 = APIRouter(prefix="/v1")
@@ -19,3 +20,4 @@ router_v1.include_router(technology_router)
 router_v1.include_router(complaint_router)
 router_v1.include_router(service_type_router)
 router_v1.include_router(test_step_type_router)
+router_v1.include_router(device_info_router)

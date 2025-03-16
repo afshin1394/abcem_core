@@ -32,9 +32,36 @@ class WalkTestDomain:
     walk_test_status_id: WalkTestStatusEnum
 
     def __repr__(self) -> str:
-        return (f"WalkTestDomain(ref_id={self.ref_id}, province={self.province}, region={self.region}, "
-                f"city={self.city}, is_village={self.is_village}, latitude={self.latitude}, longitude={self.longitude}, "
-                f"serving_cell={self.serving_cell}, serving_site={self.serving_site}, "
-                f"start_time_of_issue={self.start_time_of_issue},end_time_of_issue={self.end_time_of_issue}, msisdn={self.msisdn}, technology={self.technology_type_id.name}, "
-                f"complaint_type={self.complaint_type_id.name}, problematic_service={self.problematic_service_id.name}, service_type_id={self.service_type_id.name}, "
-                f"related_tt={self.related_tt}, walk_test_status_id={self.walk_test_status_id.name})")
+        return (
+            f"WalkTestDomain(ref_id={self.ref_id}, province={self.province}, region={self.region}, "
+            f"city={self.city}, is_village={self.is_village}, latitude={self.latitude}, longitude={self.longitude}, "
+            f"serving_cell={self.serving_cell}, serving_site={self.serving_site}, "
+            f"start_time_of_issue={self.start_time_of_issue}, end_time_of_issue={self.end_time_of_issue}, "
+            f"msisdn={self.msisdn}, technology={self.technology_type_id.name}, "
+            f"complaint_type={self.complaint_type_id.name}, problematic_service={self.problematic_service_id.name}, "
+            f"service_type_id={self.service_type_id.name}, related_tt={self.related_tt}, "
+            f"walk_test_status_id={self.walk_test_status_id.name})"
+        )
+
+    def to_dict(self) -> dict:
+        return {
+            "ref_id": self.ref_id,
+            "province": self.province,
+            "region": self.region,
+            "city": self.city,
+            "is_village": self.is_village,
+            "latitude": self.latitude,
+            "longitude": self.longitude,
+            "serving_cell": self.serving_cell,
+            "serving_site": self.serving_site,
+            "is_at_all_hours": self.is_at_all_hours,
+            "start_time_of_issue": self.start_time_of_issue.isoformat() if self.start_time_of_issue else None,
+            "end_time_of_issue": self.end_time_of_issue.isoformat() if self.end_time_of_issue else None,
+            "msisdn": self.msisdn,
+            "technology_type_id": self.technology_type_id.name,
+            "complaint_type_id": self.complaint_type_id.name,
+            "problematic_service_id": self.problematic_service_id.name,
+            "service_type_id": self.service_type_id.name,
+            "related_tt": self.related_tt,
+            "walk_test_status_id": self.walk_test_status_id.name,
+        }

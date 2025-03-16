@@ -1,7 +1,7 @@
 from typing import List
 
 from app.application.cqrs.queries.get_all_problematic_service_type_query import GetAllProblematicServiceTypeQuery
-from app.application.cqrs.shared.query_handler import QueryHandler, Q, R
+from app.application.cqrs.shared.query_handler import QueryHandler
 from app.domain.cache.cache_gateway import CacheGateway
 from app.domain.entities.problematic_service_domain import ProblematicServiceDomain
 from app.domain.repositories.read.read_problematic_service_repository import ReadProblematicServiceRepository

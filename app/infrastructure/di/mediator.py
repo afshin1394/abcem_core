@@ -3,9 +3,12 @@ from fastapi import Depends
 from app.application.cqrs.commands.authenticate_command import AuthenticateCommand
 from app.application.cqrs.commands.create_user_command import CreateUserCommand
 from app.application.cqrs.commands.create_walk_test_command import CreateWalkTestCommand
+from app.application.cqrs.commands.update_device_info_command import UpdateDeviceInfoCommand
 from app.application.cqrs.handlers.command_handler.authenticate_command_handler import AuthenticateCommandHandler
 from app.application.cqrs.handlers.command_handler.create_user_command_handler import CreateUserCommandHandler
 from app.application.cqrs.handlers.command_handler.create_walk_test_command_handler import CreateWalkTestCommandHandler
+from app.application.cqrs.handlers.command_handler.update_device_info_command_handler import \
+    UpdateDeviceInfoCommandHandler
 from app.application.cqrs.handlers.query_handler.get_all_complaint_type_query_handler import \
     GetAllComplaintTypeQueryHandler
 from app.application.cqrs.handlers.query_handler.get_all_problematic_service_type_query_handler import \
@@ -30,7 +33,8 @@ from app.domain.services.get_ip_info_service import GetIpInfoService
 from app.infrastructure.di.redis_client import get_cache
 from app.infrastructure.di.repositories import get_users_repository, get_read_walk_test_repository, \
     get_write_walk_test_repository, get_read_technology_type_repository, get_read_complaint_type_repository, \
-    get_read_problematic_service_type_repository, get_read_service_type_repository, get_read_test_step_type_repository
+    get_read_problematic_service_type_repository, get_read_service_type_repository, get_read_test_step_type_repository, \
+    get_write_device_info_repository
 
 from app.infrastructure.di.services import get_ip_info_service
 
@@ -41,17 +45,20 @@ def get_mediator(
                  users_repository: UsersRepository = Depends(get_users_repository),
                  read_walk_test_repository=Depends(get_read_walk_test_repository),
                  write_walk_test_repository=Depends(get_write_walk_test_repository,),
+                 write_device_info_repository = Depends(get_write_device_info_repository,),
                  read_technology_repository=Depends(get_read_technology_type_repository,),
                  read_complaint_type_repository = Depends(get_read_complaint_type_repository),
                  read_problematic_service_repository = Depends(get_read_problematic_service_type_repository),
                  read_service_type_repository = Depends(get_read_service_type_repository),
-                 read_test_step_type_repository = Depends(get_read_test_step_type_repository)
+                 read_test_step_type_repository = Depends(get_read_test_step_type_repository),
+
 ) -> Mediator:
     # commands
     mediator = Mediator()
     mediator.register_handler(AuthenticateCommand, AuthenticateCommandHandler(ip_info_service,cache_gateway=cache_gateway))
     mediator.register_handler(CreateUserCommand, CreateUserCommandHandler(users_repository,cache_gateway=cache_gateway))
     mediator.register_handler(CreateWalkTestCommand, CreateWalkTestCommandHandler(write_walk_test_repository,cache_gateway=cache_gateway))
+    mediator.register_handler(UpdateDeviceInfoCommand,UpdateDeviceInfoCommandHandler(write_device_info_repository= write_device_info_repository,cache_gateway=cache_gateway))
 
     # queries
     mediator.register_handler(GetWalkTestByMSISDNQuery,

@@ -1,7 +1,5 @@
 
 from sqlalchemy import DateTime, Column, Integer, String, ForeignKey
-from sqlalchemy.orm import relationship
-
 from app.infrastructure.schemas.base_db_model import BaseDBModelWithUUIDPK
 
 
@@ -14,4 +12,5 @@ class TableDeviceInfo(BaseDBModelWithUUIDPK):
     device = Column(String, nullable=False)
     hardware = Column(String, nullable=False)
     model = Column(String, nullable=False)
+    walk_test_id = Column(String,ForeignKey('table_walk_test_status.id'), nullable=False)
 

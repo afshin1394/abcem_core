@@ -6,6 +6,7 @@ from app.domain.repositories.read.read_test_step_type_repository import ReadTest
 from app.domain.repositories.read.read_walk_test_repository import ReadWalkTestRepository
 from app.domain.repositories.speed_test_repository import SpeedTestRepository
 from app.domain.repositories.users_repository import UsersRepository
+from app.domain.repositories.write.write_device_info_repository import WriteDeviceInfoRepository
 from app.domain.repositories.write.write_walk_test_repository import WriteWalkTestRepository
 from app.infrastructure.di.database import get_db
 from app.infrastructure.repository_impl.read.read_complaint_type_repository_impl import ReadComplaintTypeRepositoryImpl
@@ -20,6 +21,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from fastapi import Depends
 
 from app.infrastructure.repository_impl.users_repository_impl import UsersRepositoryImpl
+from app.infrastructure.repository_impl.write.write_device_info_repository_impl import WriteDeviceInfoRepositoryImpl
 from app.infrastructure.repository_impl.write.write_walk_test_repository_impl import WriteWalkTestRepositoryImpl
 
 
@@ -40,6 +42,12 @@ async def get_write_walk_test_repository(
         async_session: AsyncSession = Depends(get_db),
 ) -> WriteWalkTestRepository:
     return WriteWalkTestRepositoryImpl(db=async_session)
+
+async def get_write_device_info_repository(
+        async_session: AsyncSession = Depends(get_db)
+) -> WriteDeviceInfoRepository:
+    return WriteDeviceInfoRepositoryImpl(db=async_session)
+
 
 
 # read repos
@@ -73,3 +81,7 @@ async def get_read_test_step_type_repository(
         async_session: AsyncSession = Depends(get_db)
 ) -> ReadTestStepTypeRepository:
     return ReadTestStepTypeRepositoryImpl(db=async_session)
+
+
+
+

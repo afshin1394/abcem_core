@@ -8,6 +8,7 @@ from app.application.usecase.get_all_technology_type_usecase import GetAllTechno
 from app.application.usecase.get_all_test_step_type_usecase import GetAllTestStepTypeUseCase
 from app.application.usecase.get_all_walk_test_by_msisdn_usecase import GetAllWalkTestByMSISDNUseCase
 from app.application.usecase.speed_test_server_list_usecase import SpeedTestServerListUseCase
+from app.application.usecase.update_device_info_usecase import UpdateDeviceInfoUseCase
 from app.domain.cache.cache_gateway import CacheGateway
 from app.domain.repositories.speed_test_repository import SpeedTestRepository
 from fastapi import Depends
@@ -26,6 +27,11 @@ async def get_create_user_use_case(
         mediator: Mediator = Depends(get_mediator),
 ) -> CreateUserUseCase:
     return CreateUserUseCase(mediator=mediator)
+
+async def get_update_device_info_use_case(
+        mediator: Mediator = Depends(get_mediator)
+) -> UpdateDeviceInfoUseCase:
+    return UpdateDeviceInfoUseCase(mediator=mediator)
 
 
 async def get_create_walk_test_use_case(

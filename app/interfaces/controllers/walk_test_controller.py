@@ -27,7 +27,6 @@ class WalkTestController:
                                       walk_test_by_msisdn_request: GetWalkTestByMSISDNRequest) -> WalkTestByMSISDNResponse:
         walk_test_by_msisdn_domain_list = await self.get_all_walk_test_by_msisdn_use_case.execute(
             get_walk_test_by_msisdn_request=walk_test_by_msisdn_request)
-
         response_list = await map_models_list(walk_test_by_msisdn_domain_list, WalkTestByMSISDN)
         print("response" + response_list.__str__())
         return WalkTestByMSISDNResponse(result=response_list)

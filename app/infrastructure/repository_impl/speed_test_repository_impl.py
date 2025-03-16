@@ -28,7 +28,7 @@ class SpeedTestRepositoryImpl(SpeedTestRepository):
         models = result.scalars().all()
 
         # Map ORM models to domain models
-        return mapp(models,SpeedTestServerDomain)
+        return await map_models_list(models,SpeedTestServerDomain)
 
     async def upsert_servers(self, servers: List[SpeedTestServerDomain]) -> None:
         """

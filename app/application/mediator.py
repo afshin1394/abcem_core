@@ -1,4 +1,5 @@
 # app/application/mediator.py
+import inspect
 from typing import Type, Callable, Dict, Any
 from inspect import iscoroutinefunction
 import logging
@@ -17,7 +18,9 @@ class Mediator:
         handler = self._handlers.get(message_type)
         if not handler:
             raise ValueError(f"No handler registered for {message_type}")
-        if iscoroutinefunction(handler):
-            return await handler(message)
-        else:
-            return handler(message)
+
+        # Call the handler first, then check if the result is awaitable.
+        result = handler(message)
+        if inspect.isawaitable(result):
+            return await result
+        return result

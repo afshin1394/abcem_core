@@ -1,6 +1,6 @@
 # infrastructure/cache/redis_client.py
 import json
-from typing import Optional, Generic, TypeVar, Any
+from typing import Optional,Any
 
 from redis.asyncio import Redis
 
@@ -35,8 +35,8 @@ class RedisCacheGateway(CacheGateway):
         return json.loads(value)
 
     async def set(self, key: str, value: Any, expire: int = 3600):
-        serialized = json.dumps(value)
-        if expire > 0:
-            await self.redis.set(key, serialized, ex=expire)
-        else:
-            await self.redis.set(key, serialized)
+            serialized = json.dumps(value)
+            if expire > 0:
+                await self.redis.set(key, serialized, ex=expire)
+            else:
+                await self.redis.set(key, serialized)

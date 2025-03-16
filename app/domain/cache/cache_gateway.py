@@ -4,7 +4,7 @@ from typing import Optional, List, Any
 
 class CacheGateway(ABC):
     @abstractmethod
-    async def set(self, key: str, value: Any, expiry: int) -> None:
+    async def set(self, key: str, value: Any, expire: int) -> None:
         """
         Stores a value of type T under the specified key, with an expiry time.
         """
