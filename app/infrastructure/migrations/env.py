@@ -8,7 +8,7 @@ from alembic import context
 # Import your models and base class
 from app.infrastructure.schemas.base_db_model import Base
 from app.infrastructure.schemas.table_step_type import TableStepTestType
-from app.infrastructure.schemas.table_voice_test import TableVoiceTest
+from app.infrastructure.schemas.table_call_test import TableCallTest
 from app.infrastructure.schemas.table_speed_test_servers import TableSpeedTestServer
 from app.infrastructure.schemas.table_technology_type import TableTechnologyType
 from app.infrastructure.schemas.table_cell_info import TableCellInfo

@@ -38,12 +38,10 @@ class TableWalkTest(BaseDBModelWithUUIDPK):
     technology_type_id = Column(Integer, ForeignKey('table_technology_type.id'), nullable=False)
     complaint_type_id = Column(Integer, ForeignKey('table_complaint_type.id'), nullable=False)
     problematic_service_id = Column(Integer, ForeignKey('table_problematic_service.id'), nullable=False)
-    device_info_id = Column(String, ForeignKey('table_device_info.id', ondelete="SET NULL"), nullable=False)
     service_type_id = Column(Integer, ForeignKey('table_service_type.id'), nullable=False)
     walk_test_status_id = Column(Integer, ForeignKey('table_walk_test_status.id'), nullable=False)
 
-    device_info = relationship('TableDeviceInfo', backref='walk_test', uselist=False, single_parent=True,
-                               cascade='all, delete-orphan', post_update=True)
+
     walk_test_details = relationship('TableWalkTestDetail', backref='walk_test', cascade='all, delete-orphan')
     technology_type = relationship('TableTechnologyType')
     complaint_type = relationship('TableComplaintType')

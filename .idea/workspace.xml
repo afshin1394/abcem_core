@@ -5,14 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32495f57-93b2-4593-a15d-d4c5d0910bb9" name="Changes" comment="alembic integration">
+      <change afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_speed_test_results.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/application/cqrs/handlers/query_handler/get_all_problematic_service_type_query_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/query_handler/get_all_problematic_service_type_query_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/cqrs/shared/command_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/cqrs/shared/command_handler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/application/cqrs/shared/query_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/cqrs/shared/query_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/application/mediator.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/mediator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/domain/cache/cache_gateway.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/cache/cache_gateway.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/domain/entities/walk_test_domain.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/entities/walk_test_domain.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/redis.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/redis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/domain/enums/step_test_type_enum.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/enums/step_test_type_enum.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/migrations/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/migrations/env.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/migrations/versions/a0cfefe5e051_seed_database.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/migrations/versions/d615c90a10ca_init_database.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/repository_impl/write/write_device_info_repository_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/write/write_device_info_repository_impl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/table_cell_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_cell_info.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/table_device_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_device_info.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/table_voice_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_call_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/table_walk_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_walk_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/table_walk_test_detail.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_walk_test_detail.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/controllers/device_info_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/controllers/device_info_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/interfaces/controllers/walk_test_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/controllers/walk_test_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/dto/request/update_device_info_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/dto/request/update_device_info_request.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +38,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;afshin1394&quot;
+  }
+}</component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
       <filtered-out-file-type name="LOCAL_BRANCH" />
@@ -37,6 +52,12 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/afshin1394/abcem_core.git&quot;,
+    &quot;accountId&quot;: &quot;64eaa063-6e97-46b7-ad18-6f91693732e5&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -255,6 +276,9 @@
       <workItem from="1741595302826" duration="31613000" />
       <workItem from="1741761479001" duration="15621000" />
       <workItem from="1742021096404" duration="10665000" />
+      <workItem from="1742136026376" duration="5567000" />
+      <workItem from="1742210266196" duration="5221000" />
+      <workItem from="1742211123196" duration="11513000" />
     </task>
     <task id="LOCAL-00001" summary="alembic integration">
       <option name="closed" value="true" />
@@ -312,6 +336,11 @@
           <url>file://$PROJECT_DIR$/app/infrastructure/migrations/env.py</url>
           <line>21</line>
           <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app/domain/repositories/write/write_device_info_repository.py</url>
+          <line>7</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

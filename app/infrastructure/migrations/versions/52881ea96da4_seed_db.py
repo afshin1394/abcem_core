@@ -2,8 +2,10 @@
 
 """seed database
 
-Revision ID: a0cfefe5e051
-Revises: d615c90a10ca
+Revision ID: 52881ea96da4
+
+Revises: f2e7bc021eb0
+
 Create Date: 2025-02-24 06:50:08.082334
 
 """
@@ -21,8 +23,8 @@ from app.domain.enums.technology_enum import TechnologyEnum
 from app.domain.enums.walk_test_state_enum import WalkTestStatusEnum
 
 # revision identifiers, used by Alembic.
-revision: str = 'a0cfefe5e051'
-down_revision: Union[str, None] = "d615c90a10ca"
+revision: str = '52881ea96da4'
+down_revision: Union[str, None] = "f2e7bc021eb0"
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 

@@ -1,8 +1,8 @@
-"""init database
+"""init_db
 
-Revision ID: d615c90a10ca
+Revision ID: f2e7bc021eb0
 Revises: 
-Create Date: 2025-03-05 05:15:56.106585
+Create Date: 2025-03-19 10:46:07.393883
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import postgresql
 
 # revision identifiers, used by Alembic.
-revision: str = 'd615c90a10ca'
+revision: str = 'f2e7bc021eb0'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -23,18 +23,6 @@ def upgrade() -> None:
     op.create_table('table_complaint_type',
     sa.Column('name', sa.String(), nullable=True),
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
-    sa.Column('updated_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
-    sa.PrimaryKeyConstraint('id')
-    )
-    op.create_table('table_device_info',
-    sa.Column('security_patch', sa.DateTime(), nullable=False),
-    sa.Column('sdk', sa.Integer(), nullable=False),
-    sa.Column('os_version', sa.Integer(), nullable=False),
-    sa.Column('brand', sa.String(), nullable=False),
-    sa.Column('device', sa.String(), nullable=False),
-    sa.Column('hardware', sa.String(), nullable=False),
-    sa.Column('model', sa.String(), nullable=False),
-    sa.Column('id', sa.String(), nullable=False),
     sa.Column('updated_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
@@ -102,16 +90,14 @@ def upgrade() -> None:
     sa.Column('msisdn', sa.String(), nullable=True),
     sa.Column('related_tt', sa.String(), nullable=True),
     sa.Column('created_at', sa.TIMESTAMP(), nullable=True),
-    sa.Column('technology_type_id', sa.Integer(), nullable=True),
-    sa.Column('complaint_type_id', sa.Integer(), nullable=True),
-    sa.Column('problematic_service_id', sa.Integer(), nullable=True),
-    sa.Column('walk_test_status_id', sa.Integer(), nullable=True),
-    sa.Column('device_info_id', sa.String(), nullable=True),
+    sa.Column('technology_type_id', sa.Integer(), nullable=False),
+    sa.Column('complaint_type_id', sa.Integer(), nullable=False),
+    sa.Column('problematic_service_id', sa.Integer(), nullable=False),
     sa.Column('service_type_id', sa.Integer(), nullable=False),
+    sa.Column('walk_test_status_id', sa.Integer(), nullable=False),
     sa.Column('id', sa.String(), nullable=False),
     sa.Column('updated_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
     sa.ForeignKeyConstraint(['complaint_type_id'], ['table_complaint_type.id'], ),
-    sa.ForeignKeyConstraint(['device_info_id'], ['table_device_info.id'], ondelete='SET NULL'),
     sa.ForeignKeyConstraint(['problematic_service_id'], ['table_problematic_service.id'], ),
     sa.ForeignKeyConstraint(['service_type_id'], ['table_service_type.id'], ),
     sa.ForeignKeyConstraint(['technology_type_id'], ['table_technology_type.id'], ),
@@ -119,9 +105,15 @@ def upgrade() -> None:
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('ref_id')
     )
-    op.create_table('table_voice_test',
-    sa.Column('drop_call', sa.Integer(), nullable=True),
-    sa.Column('walk_test_id', sa.String(), nullable=True),
+    op.create_table('table_device_info',
+    sa.Column('security_patch', sa.DateTime(), nullable=False),
+    sa.Column('sdk', sa.Integer(), nullable=False),
+    sa.Column('os_version', sa.Integer(), nullable=False),
+    sa.Column('brand', sa.String(), nullable=False),
+    sa.Column('device', sa.String(), nullable=False),
+    sa.Column('hardware', sa.String(), nullable=False),
+    sa.Column('model', sa.String(), nullable=False),
+    sa.Column('walk_test_id', sa.String(), nullable=False),
     sa.Column('id', sa.String(), nullable=False),
     sa.Column('updated_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
     sa.ForeignKeyConstraint(['walk_test_id'], ['table_walk_test.id'], ),
@@ -130,11 +122,9 @@ def upgrade() -> None:
     op.create_table('table_walk_test_detail',
     sa.Column('step_number', sa.Integer(), nullable=True),
     sa.Column('step_type_id', sa.Integer(), nullable=True),
-    sa.Column('walk_test_id', sa.String(), nullable=True),
-    sa.Column('device_info_id', sa.String(), nullable=True),
+    sa.Column('walk_test_id', sa.String(), nullable=False),
     sa.Column('id', sa.String(), nullable=False),
     sa.Column('updated_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
-    sa.ForeignKeyConstraint(['device_info_id'], ['table_device_info.id'], ),
     sa.ForeignKeyConstraint(['step_type_id'], ['table_step_test_type.id'], ),
     sa.ForeignKeyConstraint(['walk_test_id'], ['table_walk_test.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -151,14 +141,23 @@ def upgrade() -> None:
     sa.ForeignKeyConstraint(['walk_test_detail_id'], ['table_walk_test_detail.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    op.create_table('table_voice_test',
+    sa.Column('drop_call', sa.Integer(), nullable=True),
+    sa.Column('walk_test_detail_id', sa.String(), nullable=True),
+    sa.Column('id', sa.String(), nullable=False),
+    sa.Column('updated_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
+    sa.ForeignKeyConstraint(['walk_test_detail_id'], ['table_walk_test_detail.id'], ),
+    sa.PrimaryKeyConstraint('id')
+    )
     # ### end Alembic commands ###
 
 
 def downgrade() -> None:
     # ### commands auto generated by Alembic - please adjust! ###
+    op.drop_table('table_voice_test')
     op.drop_table('table_cell_info')
     op.drop_table('table_walk_test_detail')
-    op.drop_table('table_voice_test')
+    op.drop_table('table_device_info')
     op.drop_table('table_walk_test')
     op.drop_table('table_walk_test_status')
     op.drop_table('table_technology_type')
@@ -166,6 +165,5 @@ def downgrade() -> None:
     op.drop_table('table_speed_test_servers')
     op.drop_table('table_service_type')
     op.drop_table('table_problematic_service')
-    op.drop_table('table_device_info')
     op.drop_table('table_complaint_type')
     # ### end Alembic commands ###

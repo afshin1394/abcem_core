@@ -19,7 +19,7 @@ class WalkTestController:
         )
 
         # 2. Pass 'walk_test_data' into the model's 'result' field
-        response = WalkTestCreatedResponse(result=walk_test_data)
+        response = WalkTestCreatedResponse(status_code = 201,result=walk_test_data)
         print("response" + response.result)
         return response
 

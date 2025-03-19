@@ -14,7 +14,7 @@ class QueryHandler(ABC, Generic[Q, R]):
     Abstract base class for handling queries and producing results.
     """
 
-    def __init__(self, cache_gateway: CacheGateway, cache_enabled: bool = True, expire: int = 3600):
+    def __init__(self, cache_gateway: CacheGateway, cache_enabled: bool = True, expire: int = 1800):
         self.cache_gateway = cache_gateway
         self.cache_enabled = cache_enabled  # Flag to enable/disable caching
         self.expire = expire

@@ -9,4 +9,4 @@ class DeviceInfoController:
 
     async def update_device_info(self,update_device_info_request : UpdateDeviceInfoRequest ) -> str:
       result = await self.update_device_info_use_case.execute(update_device_info_request=update_device_info_request)
-      return ReceiveDeviceInfoResponse(result= result)
+      return ReceiveDeviceInfoResponse(status_code = 201,result= result)

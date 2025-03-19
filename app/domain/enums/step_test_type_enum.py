@@ -1,6 +1,6 @@
 from enum import Enum
 
 class StepTestTypeEnum(int, Enum):
-    VOICE = 1
-    DATA = 2
-    VOICE_AND_DATA = 3
+    CALL = 1
+    SPEED_TEST = 2
+    EXTRACT_CELL_INFO = 3

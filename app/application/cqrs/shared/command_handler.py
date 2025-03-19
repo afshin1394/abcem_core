@@ -2,12 +2,8 @@
 
 from abc import ABC, abstractmethod
 from typing import Generic, TypeVar, Optional
-
-from fastapi import Depends
-
 from app.domain.cache.cache_gateway import CacheGateway
 from app.domain.events.event import Event
-
 
 # Define a base Command class if not already defined
 class Command:

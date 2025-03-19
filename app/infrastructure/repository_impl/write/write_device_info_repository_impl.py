@@ -27,6 +27,10 @@ class WriteDeviceInfoRepositoryImpl(WriteDeviceInfoRepository):
              existing_device.device = device_info_domain.device
              existing_device.hardware = device_info_domain.hardware
              existing_device.model = device_info_domain.model
+             await self.db.commit()
+             return "updated"
+
+
             else:
              new_device = TableDeviceInfo(
                 walk_test_id=device_info_domain.walk_test_id,
@@ -39,6 +43,5 @@ class WriteDeviceInfoRepositoryImpl(WriteDeviceInfoRepository):
                 model=device_info_domain.model
              )
              self.db.add(new_device)
-
              await self.db.commit()
              return "created"
