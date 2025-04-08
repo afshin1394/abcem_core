@@ -9,8 +9,9 @@ from app.domain.repositories.read.read_walk_test_repository import ReadWalkTestR
 
 class GetWalkTestByMSISDNQueryHandler(QueryHandler[GetWalkTestByMSISDNQuery, WalkTestDomain]):
 
-    def __init__(self, read_walk_test_repository: ReadWalkTestRepository, cache_gateway: CacheGateway,expire : int) -> None:
-        super().__init__(cache_gateway,expire=expire)
+
+    def __init__(self, read_walk_test_repository: ReadWalkTestRepository, cache_gateway: CacheGateway,expire : int,cache_enabled = True) -> None:
+        super().__init__(cache_gateway,expire=expire,cache_enabled=cache_enabled)
         self.read_walk_test_repository = read_walk_test_repository
 
     async def handle(self, query: GetWalkTestByMSISDNQuery) -> List[WalkTestDomain]:

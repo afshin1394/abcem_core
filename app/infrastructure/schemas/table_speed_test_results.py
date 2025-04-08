@@ -5,6 +5,8 @@ from app.infrastructure.schemas.base_db_model import BaseDBModelWithUUIDPK
 
 
 class TableSpeedTestResults(BaseDBModelWithUUIDPK):
+       __tablename__ = 'table_speed_test_results'
+
        download = Column(Float, default=0.0,nullable=False)
        upload = Column(Float, default=0.0,nullable=False)
        ping = Column(Float, default=0.0,nullable=False)

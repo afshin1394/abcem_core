@@ -1,4 +1,6 @@
 from pydantic import BaseModel
+import hashlib
+import orjson
 
 
 class Query(BaseModel):
@@ -17,3 +19,9 @@ class Query(BaseModel):
         populate_by_name = True
         from_attribute = True
         arbitrary_types_allowed = True
+
+    async def generate_cache_key(self) -> str:
+        """Generate a hashed cache key for the query to reduce length and ensure uniqueness."""
+        query_json = orjson.dumps(self.model_dump(), option=orjson.OPT_SORT_KEYS)
+        query_hash = hashlib.sha256(query_json).hexdigest()  # Create SHA-256 hash
+        return f"{self.__class__.__name__}:{query_hash}"

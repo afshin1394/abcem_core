@@ -5,23 +5,76 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32495f57-93b2-4593-a15d-d4c5d0910bb9" name="Changes" comment="alembic integration">
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_speed_test_results.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/application/cqrs/commands/create_walk_test_results_command.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/command_handler/create_walk_test_results_command_handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/query_handler/get_walk_test_results_by_walk_test_id_query_handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/application/cqrs/queries/get_walk_test_results_by_walk_test_id_query.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/application/usecase/get_walk_test_results_by_walk_test_id_use_case.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/application/usecase/insert_walk_test_results_use_case.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/entities/call_test_domain.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/entities/cell_info_domain.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/entities/speed_test_result_domain.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/entities/walk_test_detail_domain.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/entities/walk_test_results_domain.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/repositories/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/repositories/read/read_walk_test_results_repository.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/repositories/write/multi/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/repositories/write/multi/write_walk_test_result_unit_of_work.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/repositories/write/single/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/infrastructure/exceptions/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/infrastructure/logto.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/read/read_walk_test_results_repository_impl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/write/multi/write_walk_test_result_unit_of_work_impl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/interfaces/dto/request/walk_test_results_by_walk_test_id_request.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/interfaces/dto/request/walk_test_results_request.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/interfaces/dto/response/walk_test_results_by_walk_test_id_response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/interfaces/dto/response/walk_test_results_response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logto/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/application/usecase/insert_walk_test_usecase_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/interface/dto/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/interface/dto/walk_test_results_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.docker" beforeDir="false" afterPath="$PROJECT_DIR$/.env.docker" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/cqrs/handlers/command_handler/authenticate_command_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/command_handler/authenticate_command_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/cqrs/handlers/command_handler/create_user_command_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/command_handler/create_user_command_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/cqrs/handlers/command_handler/create_walk_test_command_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/command_handler/create_walk_test_command_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/cqrs/handlers/command_handler/update_device_info_command_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/command_handler/update_device_info_command_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/cqrs/handlers/query_handler/get_walk_test_by_msisdn_query_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/query_handler/get_walk_test_by_msisdn_query_handler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/application/cqrs/shared/command_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/cqrs/shared/command_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/cqrs/shared/query.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/cqrs/shared/query.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/application/cqrs/shared/query_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/cqrs/shared/query_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/domain/enums/step_test_type_enum.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/enums/step_test_type_enum.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/domain/entities/walk_test_domain.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/entities/walk_test_domain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/domain/repositories/read/read_walk_test_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/repositories/read/read_walk_test_repository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/domain/repositories/walk_test_repository.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/domain/repositories/write/write_device_info_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/repositories/write/single/write_device_info_repository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/domain/repositories/write/write_walk_test_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/repositories/write/single/write_walk_test_repository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/di/controllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/di/controllers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/di/mediator.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/di/mediator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/di/repositories.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/di/repositories.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/di/usecases.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/di/usecases.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/infrastructure/migrations/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/migrations/env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/migrations/versions/a0cfefe5e051_seed_database.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/migrations/versions/d615c90a10ca_init_database.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/repository_impl/write/write_device_info_repository_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/write/write_device_info_repository_impl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/migrations/versions/52881ea96da4_seed_db.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/migrations/versions/f2e7bc021eb0_init_db.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/redis.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/redis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/repository_impl/read/read_walk_test_repository_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/read/read_walk_test_repository_impl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/repository_impl/write/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/write/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/repository_impl/write/write_device_info_repository_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/write/single/write_device_info_repository_impl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/repository_impl/write/write_walk_test_repository_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/write/single/write_walk_test_repository_impl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/table_call_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_call_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/table_cell_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_cell_info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/table_device_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_device_info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/table_voice_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_call_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/table_walk_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_walk_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/table_speed_test_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_speed_test_results.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/table_walk_test_detail.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_walk_test_detail.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/interfaces/controllers/device_info_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/controllers/device_info_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/validation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/walk_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/walk_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/interfaces/controllers/walk_test_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/controllers/walk_test_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/interfaces/dto/request/update_device_info_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/dto/request/update_device_info_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/dto/request/walk_test_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/dto/request/walk_test_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/dto/response/walk_test_by_msisdn_response.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/dto/response/walk_test_by_msisdn_response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/infrastructure/mapper/mapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/infrastructure/mapper/mapper.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +84,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Dockerfile" />
         <option value="Python Script" />
       </list>
     </option>
@@ -70,34 +124,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python tests.Python tests for check_latency.test_json_endpoint_latency.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for check_latency.test_plain_endpoint_no_modification.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for mapper.test_enum_mapper.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Python tests for check_latency.test_json_endpoint_latency.executor": "Run",
+    "Python tests.Python tests for check_latency.test_plain_endpoint_no_modification.executor": "Run",
+    "Python tests.Python tests for insert_walk_test_usecase_test.test_convert_walk_test_results_request_to_command.executor": "Run",
+    "Python tests.Python tests for insert_walk_test_usecase_test.test_walk_test_detail_id_consistency.executor": "Run",
+    "Python tests.Python tests for insert_walk_test_usecase_test.test_walk_test_detail_id_consistency_and_uniqueness.executor": "Run",
+    "Python tests.Python tests for mapper.test_enum_mapper.executor": "Debug",
+    "Python tests.Python tests for mapper.test_map_models.executor": "Run",
+    "Python tests.Python tests for mapper.test_map_models_list.executor": "Run",
+    "Python tests.Python tests for walk_test_results_request.test_invalid_missing_call_test.executor": "Run",
+    "Python tests.Python tests for walk_test_results_request.test_invalid_missing_cell_info.executor": "Run",
+    "Python tests.Python tests for walk_test_results_request.test_invalid_missing_speed_test.executor": "Run",
+    "Python tests.Python tests for walk_test_results_request.test_result_key.executor": "Run",
+    "Python tests.Python tests for walk_test_results_request.test_valid_call_test.executor": "Debug",
+    "Python tests.Python tests for walk_test_results_request.test_valid_cell_info.executor": "Run",
+    "Python tests.Python tests for walk_test_results_request.test_valid_speed_test.executor": "Run",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/infrastructure" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\afshin.sa\PycharmProjects\abcem_core\app\application\cqrs\handlers\command_handler" />
-      <recent name="C:\Users\afshin.sa\PycharmProjects\abcem_core\app\application\cqrs" />
-      <recent name="$PROJECT_DIR$/test/application" />
-      <recent name="$PROJECT_DIR$/test/infrastructure" />
-      <recent name="$PROJECT_DIR$/app/interfaces/api/v2/endpoints" />
+      <recent name="$PROJECT_DIR$/app/application/cqrs/commands" />
+      <recent name="$PROJECT_DIR$/app/domain/repositories/write/single" />
+      <recent name="$PROJECT_DIR$/app/infrastructure/repository_impl/write/single" />
+      <recent name="$PROJECT_DIR$/app/infrastructure/repository_impl/write/multi" />
+      <recent name="$PROJECT_DIR$/app/domain/repositories/write" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for check_latency.test_json_endpoint_latency">
+  <component name="RunManager" selected="Python tests.Python tests for walk_test_results_request.test_result_key">
     <configuration name="FastAPI Docker Debug" type="PyRemoteDebugConfigurationType" factoryName="Python Remote Debug">
       <module name="core" />
       <option name="PORT" value="5678" />
@@ -138,83 +205,83 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for check_latency.test_json_endpoint_latency" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for walk_test_results_request.test_invalid_missing_call_test" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="core" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/interface" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/interface/dto" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;check_latency.test_json_endpoint_latency&quot;" />
+      <option name="_new_target" value="&quot;walk_test_results_request.test_invalid_missing_call_test&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for check_latency.test_plain_endpoint_no_modification" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for walk_test_results_request.test_invalid_missing_speed_test" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="core" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/interface" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/interface/dto" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;check_latency.test_plain_endpoint_no_modification&quot;" />
+      <option name="_new_target" value="&quot;walk_test_results_request.test_invalid_missing_speed_test&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for mapper.test_date_mapper" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for walk_test_results_request.test_result_key" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="core" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/infrastructure/mapper" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/interface/dto" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;mapper.test_date_mapper&quot;" />
+      <option name="_new_target" value="&quot;walk_test_results_request.test_result_key&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for mapper.test_enum_mapper" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for walk_test_results_request.test_valid_cell_info" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="core" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/infrastructure/mapper" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/interface/dto" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;mapper.test_enum_mapper&quot;" />
+      <option name="_new_target" value="&quot;walk_test_results_request.test_valid_cell_info&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for mapper.test_time_mapper" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for walk_test_results_request.test_valid_speed_test" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="core" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/infrastructure/mapper" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/interface/dto" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;mapper.test_time_mapper&quot;" />
+      <option name="_new_target" value="&quot;walk_test_results_request.test_valid_speed_test&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -222,19 +289,19 @@
       <item itemvalue="Docker.abcem_services" />
       <item itemvalue="FastAPI.core" />
       <item itemvalue="Python Debug Server.FastAPI Docker Debug" />
-      <item itemvalue="Python tests.Python tests for check_latency.test_json_endpoint_latency" />
-      <item itemvalue="Python tests.Python tests for check_latency.test_plain_endpoint_no_modification" />
-      <item itemvalue="Python tests.Python tests for mapper.test_date_mapper" />
-      <item itemvalue="Python tests.Python tests for mapper.test_enum_mapper" />
-      <item itemvalue="Python tests.Python tests for mapper.test_time_mapper" />
+      <item itemvalue="Python tests.Python tests for walk_test_results_request.test_result_key" />
+      <item itemvalue="Python tests.Python tests for walk_test_results_request.test_invalid_missing_call_test" />
+      <item itemvalue="Python tests.Python tests for walk_test_results_request.test_invalid_missing_speed_test" />
+      <item itemvalue="Python tests.Python tests for walk_test_results_request.test_valid_cell_info" />
+      <item itemvalue="Python tests.Python tests for walk_test_results_request.test_valid_speed_test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests for check_latency.test_json_endpoint_latency" />
-        <item itemvalue="Python tests.Python tests for check_latency.test_plain_endpoint_no_modification" />
-        <item itemvalue="Python tests.Python tests for mapper.test_enum_mapper" />
-        <item itemvalue="Python tests.Python tests for mapper.test_time_mapper" />
-        <item itemvalue="Python tests.Python tests for mapper.test_date_mapper" />
+        <item itemvalue="Python tests.Python tests for walk_test_results_request.test_result_key" />
+        <item itemvalue="Python tests.Python tests for walk_test_results_request.test_valid_cell_info" />
+        <item itemvalue="Python tests.Python tests for walk_test_results_request.test_invalid_missing_speed_test" />
+        <item itemvalue="Python tests.Python tests for walk_test_results_request.test_valid_speed_test" />
+        <item itemvalue="Python tests.Python tests for walk_test_results_request.test_invalid_missing_call_test" />
       </list>
     </recent_temporary>
   </component>
@@ -278,7 +345,16 @@
       <workItem from="1742021096404" duration="10665000" />
       <workItem from="1742136026376" duration="5567000" />
       <workItem from="1742210266196" duration="5221000" />
-      <workItem from="1742211123196" duration="11513000" />
+      <workItem from="1742211123196" duration="11711000" />
+      <workItem from="1742419792903" duration="5376000" />
+      <workItem from="1742489804104" duration="35741000" />
+      <workItem from="1742901884460" duration="25641000" />
+      <workItem from="1743071257685" duration="9696000" />
+      <workItem from="1743114164592" duration="3032000" />
+      <workItem from="1743156676127" duration="20714000" />
+      <workItem from="1743320432604" duration="9265000" />
+      <workItem from="1743349953949" duration="16196000" />
+      <workItem from="1744092325828" duration="16329000" />
     </task>
     <task id="LOCAL-00001" summary="alembic integration">
       <option name="closed" value="true" />
@@ -338,15 +414,30 @@
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/app/domain/repositories/write/write_device_info_repository.py</url>
-          <line>7</line>
+          <url>file://$PROJECT_DIR$/app/domain/repositories/write/single/write_device_info_repository.py</url>
+          <line>8</line>
           <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test/infrastructure/mapper/mapper.py</url>
+          <line>114</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test/infrastructure/mapper/mapper.py</url>
+          <line>100</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app/application/cqrs/shared/command_handler.py</url>
+          <line>56</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/core$.coverage" NAME=" Coverage Results" MODIFIED="1741706949718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/interface" />
+    <SUITE FILE_PATH="coverage/core$.coverage" NAME=" Coverage Results" MODIFIED="1743073520521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/interface/dto" />
     <SUITE FILE_PATH="coverage/abcem_core$.coverage" NAME=" Coverage Results" MODIFIED="1741352497355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/infrastructure/mapper" />
     <SUITE FILE_PATH="coverage/core$core.coverage" NAME="core Coverage Results" MODIFIED="1740502662091" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>

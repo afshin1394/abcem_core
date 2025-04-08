@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 
+from app.infrastructure.di import redis_client
 from app.infrastructure.di.controllers import authentication_controller
 from app.infrastructure.di.redis_client import get_cache
 from app.infrastructure.di.speed_test import get_speed_test
@@ -54,6 +55,22 @@ async def get_ip_info(controller: AuthenticationController = Depends(authenticat
 
 
 @router_v1.post("/test_redis")
-async def validate_location(redis_client: RedisCacheGateway = Depends(get_cache)):
-    await redis_client.set("test", "1")
-    return await redis_client.get("test")
+async def validate_location(
+        key: str,
+        value: str,
+        redis_client: RedisCacheGateway = Depends(get_cache)):
+    await redis_client.set(key, value)
+    return await redis_client.get(key)
+
+@router_v1.delete("/test_delete_redis")
+async def delete_redis(
+        key: str,
+        redis_client: RedisCacheGateway = Depends(get_cache)):
+    await redis_client.invalidate_keys(keys= [key])
+    return {"message": f"Key '{key}' invalidated"}
+@router_v1.get("/get_value_redis")
+async def get_value_redis(
+    key: str,
+    redis_client: RedisCacheGateway = Depends(get_cache)
+):
+    return await redis_client.get(key)

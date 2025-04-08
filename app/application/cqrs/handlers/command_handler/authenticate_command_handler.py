@@ -19,6 +19,9 @@ def generate_jwt_token(msisdn: str) -> str:
 
 class AuthenticateCommandHandler(CommandHandler):
 
+    async def get_related_cache_keys(self, command: C) -> list[str]:
+        pass
+
     def __init__(self, isp_service: GetIpInfoService, cache_gateway: CacheGateway):
         super().__init__(cache_gateway)
         self.isp_service = isp_service

@@ -7,6 +7,8 @@ from app.application.usecase.get_all_service_type_usecase import GetAllServiceTy
 from app.application.usecase.get_all_technology_type_usecase import GetAllTechnologyTypesUseCase
 from app.application.usecase.get_all_test_step_type_usecase import GetAllTestStepTypeUseCase
 from app.application.usecase.get_all_walk_test_by_msisdn_usecase import GetAllWalkTestByMSISDNUseCase
+from app.application.usecase.get_walk_test_results_by_walk_test_id_use_case import GetWalkTestResultsByWalkTestIdUseCase
+from app.application.usecase.insert_walk_test_results_use_case import InsertWalkTestResultsUseCase
 from app.application.usecase.speed_test_server_list_usecase import SpeedTestServerListUseCase
 from app.application.usecase.update_device_info_usecase import UpdateDeviceInfoUseCase
 from app.domain.cache.cache_gateway import CacheGateway
@@ -73,3 +75,13 @@ async def get_all_test_step_type_use_case(
         mediator: Mediator = Depends(get_mediator)
 ) -> GetAllTestStepTypeUseCase:
     return GetAllTestStepTypeUseCase(mediator=mediator)
+
+async def get_insert_walk_test_results_use_case(
+        mediator: Mediator = Depends(get_mediator)
+) -> InsertWalkTestResultsUseCase:
+    return InsertWalkTestResultsUseCase(mediator=mediator)
+
+async def get_walk_test_results_by_walk_test_id_use_case(
+        mediator: Mediator = Depends(get_mediator)
+)-> GetWalkTestResultsByWalkTestIdUseCase:
+    return GetWalkTestResultsByWalkTestIdUseCase(mediator=mediator)

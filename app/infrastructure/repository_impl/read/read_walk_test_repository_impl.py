@@ -19,5 +19,6 @@ class ReadWalkTestRepositoryImpl(ReadWalkTestRepository):
             select(TableWalkTest).where(TableWalkTest.msisdn == msisdn).order_by(TableWalkTest.created_at.asc())
         )
         records = result.scalars().all()
+        print(f"records {records}")
         list_of_walk_test_domain = await map_models_list(records, WalkTestDomain)
         return list_of_walk_test_domain

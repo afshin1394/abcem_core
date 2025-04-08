@@ -7,6 +7,9 @@ from app.domain.repositories.users_repository import UsersRepository
 
 
 class CreateUserCommandHandler(CommandHandler[CreateUserCommand, UserCreatedEvent]):
+    async def get_related_cache_keys(self, command: C) -> list[str]:
+        pass
+
     def __init__(self, user_repository: UsersRepository, cache_gateway: CacheGateway):
         super().__init__(cache_gateway)
         self.user_repository = user_repository

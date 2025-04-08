@@ -5,6 +5,7 @@ from typing import Generic, TypeVar, Optional
 from app.domain.cache.cache_gateway import CacheGateway
 from app.domain.events.event import Event
 
+
 # Define a base Command class if not already defined
 class Command:
     pass
@@ -27,7 +28,6 @@ class CommandHandler(ABC, Generic[C, E]):
     def __init__(self, cache_gateway: CacheGateway):
         self.cache_gateway = cache_gateway
 
-
     @abstractmethod
     async def handle(self, command: C) -> Optional[E]:
         """
@@ -41,12 +41,23 @@ class CommandHandler(ABC, Generic[C, E]):
         """
         pass
 
-    async def __call__(self, command, cache_keys_to_invalidate: Optional[list[str]] = None) -> Optional[E]:
+    async def __call__(self, command: C) -> Optional[E]:
         """Executes the command and invalidates cache if needed"""
         result = await self.handle(command)
 
-        # Invalidate cache
+        # Determine affected cache keys dynamically
+        cache_keys_to_invalidate = await self.get_related_cache_keys(command)
+        print(f"cache_keys_to_invalidate{cache_keys_to_invalidate}")
         if cache_keys_to_invalidate:
-            await self.cache_gateway.invalidate_keys(*cache_keys_to_invalidate)
-
+            await self.cache_gateway.invalidate_keys(cache_keys_to_invalidate)
         return result
+
+
+    @abstractmethod
+    async def get_related_cache_keys(self, command: C) -> list[str]:
+        """
+        Override this method in subclasses to return a list of cache keys to invalidate
+        based on the executed command.
+        """
+        return []
+

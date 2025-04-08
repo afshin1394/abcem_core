@@ -11,6 +11,7 @@ from app.interfaces.dto.success_response import BaseSuccessResponse
 
 
 class WalkTestByMSISDN(BaseModel):
+    id : str
     province: str
     region: str
     city: str
@@ -21,8 +22,8 @@ class WalkTestByMSISDN(BaseModel):
     serving_site: str
     msisdn: str
     is_at_all_hours : bool
-    start_time_of_issue: Optional[time] = Field(None, alias='startTimeOfIssue')
-    end_time_of_issue: Optional[time] = Field(None, alias='endTimeOfIssue')
+    start_time_of_issue: Optional[time] = None
+    end_time_of_issue: Optional[time] = None
     technology_type_id: TechnologyEnum
     complaint_type_id: ComplaintTypeEnum
     problematic_service_id: ProblematicServiceEnum

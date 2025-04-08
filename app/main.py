@@ -5,6 +5,7 @@ from typing import cast
 
 from starlette.responses import  Response
 
+from app.infrastructure.exceptions import InfrastructureException
 from app.interfaces.api import router_all
 from fastapi import FastAPI, HTTPException, Request
 
@@ -32,6 +33,15 @@ async def http_exception_handler(request: Request, exc: HTTPException):
             "errors": [str(exc.detail)] if isinstance(exc.detail, str) else []
         },
     )
+
+@app.exception_handler(InfrastructureException)
+async def infrastructure_exception_handler(request: Request, exc: InfrastructureException):
+    return ErrorResponse(status_code=exc.status_code,   content={
+            "message": exc.message,
+            "code": exc.status_code,
+        },)
+
+
 
 
 @app.exception_handler(RequestValidationError)

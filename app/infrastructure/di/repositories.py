@@ -4,10 +4,12 @@ from app.domain.repositories.read.read_service_type_repository import ReadServic
 from app.domain.repositories.read.read_technology_repository import ReadTechnologyRepository
 from app.domain.repositories.read.read_test_step_type_repository import ReadTestStepTypeRepository
 from app.domain.repositories.read.read_walk_test_repository import ReadWalkTestRepository
+from app.domain.repositories.read.read_walk_test_results_repository import ReadWalkTestResultsRepository
 from app.domain.repositories.speed_test_repository import SpeedTestRepository
 from app.domain.repositories.users_repository import UsersRepository
-from app.domain.repositories.write.write_device_info_repository import WriteDeviceInfoRepository
-from app.domain.repositories.write.write_walk_test_repository import WriteWalkTestRepository
+from app.domain.repositories.write.multi.write_walk_test_result_unit_of_work import WriteWalkTestResultUnitOfWork
+from app.domain.repositories.write.single.write_device_info_repository import WriteDeviceInfoRepository
+from app.domain.repositories.write.single.write_walk_test_repository import WriteWalkTestRepository
 from app.infrastructure.di.database import get_db
 from app.infrastructure.repository_impl.read.read_complaint_type_repository_impl import ReadComplaintTypeRepositoryImpl
 from app.infrastructure.repository_impl.read.read_problematic_service_repository_impl import \
@@ -16,13 +18,17 @@ from app.infrastructure.repository_impl.read.read_service_type_repsitory_impl im
 from app.infrastructure.repository_impl.read.read_technology_repository_impl import ReadTechnologyRepositoryImpl
 from app.infrastructure.repository_impl.read.read_test_step_type_repositroy_impl import ReadTestStepTypeRepositoryImpl
 from app.infrastructure.repository_impl.read.read_walk_test_repository_impl import ReadWalkTestRepositoryImpl
+from app.infrastructure.repository_impl.read.read_walk_test_results_repository_impl import \
+    ReadWalkTestResultsRepositoryImpl
 from app.infrastructure.repository_impl.speed_test_repository_impl import SpeedTestRepositoryImpl
 from sqlalchemy.ext.asyncio import AsyncSession
 from fastapi import Depends
 
 from app.infrastructure.repository_impl.users_repository_impl import UsersRepositoryImpl
-from app.infrastructure.repository_impl.write.write_device_info_repository_impl import WriteDeviceInfoRepositoryImpl
-from app.infrastructure.repository_impl.write.write_walk_test_repository_impl import WriteWalkTestRepositoryImpl
+from app.infrastructure.repository_impl.write.multi.write_walk_test_result_unit_of_work_impl import \
+    WriteWalkTestResultsUnitOfWorkImpl
+from app.infrastructure.repository_impl.write.single.write_device_info_repository_impl import WriteDBImpl
+from app.infrastructure.repository_impl.write.single.write_walk_test_repository_impl import WriteDBImpl
 
 
 async def get_speed_test_repository(
@@ -41,16 +47,21 @@ async def get_users_repository(
 async def get_write_walk_test_repository(
         async_session: AsyncSession = Depends(get_db),
 ) -> WriteWalkTestRepository:
-    return WriteWalkTestRepositoryImpl(db=async_session)
+    return WriteDBImpl(db=async_session)
 
 async def get_write_device_info_repository(
         async_session: AsyncSession = Depends(get_db)
 ) -> WriteDeviceInfoRepository:
-    return WriteDeviceInfoRepositoryImpl(db=async_session)
+    return WriteDBImpl(db=async_session)
 
 
 
 # read repos
+async def get_read_walk_test_results_repository(
+    async_session: AsyncSession = Depends(get_db)
+) -> ReadWalkTestResultsRepository:
+    return ReadWalkTestResultsRepositoryImpl(db=async_session)
+
 async def get_read_walk_test_repository(
         async_session: AsyncSession = Depends(get_db),
 ) -> ReadWalkTestRepository:
@@ -81,6 +92,16 @@ async def get_read_test_step_type_repository(
         async_session: AsyncSession = Depends(get_db)
 ) -> ReadTestStepTypeRepository:
     return ReadTestStepTypeRepositoryImpl(db=async_session)
+
+
+
+# units of work
+async def get_write_walk_test_results_unit_of_work(
+        async_session: AsyncSession = Depends(get_db)
+) -> WriteWalkTestResultUnitOfWork:
+    return WriteWalkTestResultsUnitOfWorkImpl(db_session=async_session)
+
+
 
 
 

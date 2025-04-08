@@ -30,10 +30,11 @@ class WalkTestDomain:
     service_type_id: ServiceTypeEnum
     related_tt: str
     walk_test_status_id: WalkTestStatusEnum
+    id : Optional[str] = None
 
     def __repr__(self) -> str:
         return (
-            f"WalkTestDomain(ref_id={self.ref_id}, province={self.province}, region={self.region}, "
+            f"WalkTestDomain(walk_test_id={self.id},ref_id={self.ref_id}, province={self.province}, region={self.region}, "
             f"city={self.city}, is_village={self.is_village}, latitude={self.latitude}, longitude={self.longitude}, "
             f"serving_cell={self.serving_cell}, serving_site={self.serving_site}, "
             f"start_time_of_issue={self.start_time_of_issue}, end_time_of_issue={self.end_time_of_issue}, "

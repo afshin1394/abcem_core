@@ -15,8 +15,8 @@ class WalkTestRequest(BaseModel):
     region: str = Field(default=None, description="Region where the walk test is conducted.")
     city: str = Field(default=None, description="City where the walk test is conducted.")
     is_village: bool = Field(default=None, description="Indicates if the location is a village.")
-    latitude: float = Field(default=0.0, description="Latitude of the location.", le=90, ge=-90)
-    longitude: float = Field(default=0.0, description="Longitude of the location.", le=180, ge=-180)
+    latitude: float = Field(default=35.788161, description="Latitude of the location.", le=90, ge=-90)
+    longitude: float = Field(default=51.505264, description="Longitude of the location.", le=180, ge=-180)
     serving_cell: Optional[str] = Field(default=None, description="Serving cell information.")
     serving_site: Optional[str] = Field(default=None, description="Serving site information.")
     is_at_all_hours: bool = Field(default=None, description="Indicates if the problem is at all hours")
@@ -38,18 +38,20 @@ class WalkTestRequest(BaseModel):
             return None
         return v
 
-    @model_validator(mode='after')
-    def check_time_order(cls, model: 'WalkTestRequest') -> 'WalkTestRequest':
-        if model.start_time_of_issue is not None and model.end_time_of_issue is not None:
-            if model.start_time_of_issue >= model.end_time_of_issue:
-                raise ValueError("start_time_of_issue must be before end_time_of_issue.")
-        return model
+
 
     @model_validator(mode='after')
     def check_time_range_aval(cls, model: 'WalkTestRequest') -> 'WalkTestRequest':
         if model.is_at_all_hours is False:
             if model.start_time_of_issue is None or model.end_time_of_issue is None:
                 raise ValueError("you must provide start_time_of_issue, end_time_of_issue.")
+            if model.start_time_of_issue >= model.end_time_of_issue:
+                raise ValueError("start_time_of_issue must be before end_time_of_issue.")
+        else:
+            if model.start_time_of_issue is not None or model.end_time_of_issue is not None:
+                raise ValueError("you must not provide start_time_of_issue, end_time_of_issue because is_at_all_hours is True.")
+
+
         return model
 
     class Config:

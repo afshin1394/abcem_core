@@ -1,6 +1,7 @@
 from fastapi import Depends
 
 from app.application.mediator import Mediator
+from app.application.usecase import get_walk_test_results_by_walk_test_id_use_case
 from app.application.usecase.create_user_usecase import CreateUserUseCase
 from app.application.usecase.create_walk_test_usecase import CreateWalkTestUseCase
 from app.application.usecase.get_all_complaint_types_usecase import GetAllComplaintTypesUseCase
@@ -9,13 +10,15 @@ from app.application.usecase.get_all_service_type_usecase import GetAllServiceTy
 from app.application.usecase.get_all_technology_type_usecase import GetAllTechnologyTypesUseCase
 from app.application.usecase.get_all_test_step_type_usecase import GetAllTestStepTypeUseCase
 from app.application.usecase.get_all_walk_test_by_msisdn_usecase import GetAllWalkTestByMSISDNUseCase
+from app.application.usecase.get_walk_test_results_by_walk_test_id_use_case import GetWalkTestResultsByWalkTestIdUseCase
+from app.application.usecase.insert_walk_test_results_use_case import InsertWalkTestResultsUseCase
 from app.application.usecase.speed_test_server_list_usecase import SpeedTestServerListUseCase
 from app.application.usecase.update_device_info_usecase import UpdateDeviceInfoUseCase
 from app.infrastructure.di.mediator import get_mediator
 from app.infrastructure.di.usecases import get_create_user_use_case, get_speed_test_use_case, \
     get_create_walk_test_use_case, get_all_walk_test_by_msisdn_use_case, get_all_technology_type_use_case, \
     get_all_complaint_type_use_case, get_all_problematic_service_type_use_case, get_all_service_type_use_case, \
-    get_all_test_step_type_use_case, get_update_device_info_use_case
+    get_all_test_step_type_use_case, get_update_device_info_use_case, get_insert_walk_test_results_use_case , get_walk_test_results_by_walk_test_id_use_case
 from app.interfaces.controllers.authentication_controller import AuthenticationController
 from app.interfaces.controllers.complaint_type_controller import ComplaintTypeController
 from app.interfaces.controllers.device_info_controller import DeviceInfoController
@@ -41,10 +44,16 @@ async def get_create_user_controller(create_user_use_case: CreateUserUseCase = D
 async def get_walk_test_controller(
         create_walk_test_use_case: CreateWalkTestUseCase = Depends(get_create_walk_test_use_case),
         get_walk_test_by_msisdn_use_case: GetAllWalkTestByMSISDNUseCase =
-        Depends(get_all_walk_test_by_msisdn_use_case)) -> WalkTestController:
+        Depends(get_all_walk_test_by_msisdn_use_case),
+        insert_walk_test_results_use_case: InsertWalkTestResultsUseCase = Depends(
+            get_insert_walk_test_results_use_case),
+walk_test_results_by_walk_test_id_use_case : GetWalkTestResultsByWalkTestIdUseCase = Depends(get_walk_test_results_by_walk_test_id_use_case)
+) -> WalkTestController:
     return WalkTestController(
         create_walk_test_use_case=create_walk_test_use_case,
         get_all_walk_test_by_msisdn_use_case=get_walk_test_by_msisdn_use_case,
+        insert_walk_test_results_use_case = insert_walk_test_results_use_case,
+        get_walk_test_results_by_walk_test_id_use_case=walk_test_results_by_walk_test_id_use_case
     )
 
 

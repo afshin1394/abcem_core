@@ -2,13 +2,12 @@ from sqlalchemy import Integer, Column, ForeignKey, String, Enum
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import relationship
 
-from app.domain.enums.technology_enum import TechnologyEnum
 from app.infrastructure.schemas.base_db_model import BaseDBModelWithUUIDPK
 
 
 class TableCellInfo(BaseDBModelWithUUIDPK):
     __tablename__ = 'table_cell_info'
-    detail = Column(JSONB)
+    cell_data = Column(JSONB)
     level = Column(Integer)
     quality = Column(Integer)
     walk_test_detail_id = Column(String,ForeignKey('table_walk_test_detail.id'))

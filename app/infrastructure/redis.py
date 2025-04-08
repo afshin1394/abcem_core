@@ -23,6 +23,7 @@ class RedisCacheGateway(CacheGateway):
         return cls._instance
 
     async def invalidate_keys(self, keys: list):
+        print(f"redis keys:{keys}")
         if not keys:
             return
         await self.redis.delete(*keys)
