@@ -1,4 +1,3 @@
-from typing import Optional
 
 from app.application.cqrs.commands.create_walk_test_command import CreateWalkTestCommand
 from app.application.cqrs.commands.create_walk_test_results_command import CreateWalkTestResultsCommand

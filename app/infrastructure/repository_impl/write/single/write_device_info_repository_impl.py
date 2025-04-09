@@ -7,7 +7,7 @@ from app.domain.entities.device_info_domain import DeviceInfoDomain
 from sqlalchemy import select
 
 
-class WriteDBImpl(BaseWriteDB, WriteDeviceInfoRepository):
+class WriteDeviceInfoRepositoryImpl(BaseWriteDB, WriteDeviceInfoRepository):
     def __init__(self, db: AsyncSession):
         super().__init__(db)
 

@@ -1,5 +1,5 @@
 import datetime
-from typing import Type, TypeVar, Any, get_origin, Sequence, List, get_args
+from typing import Type, TypeVar, Any, get_origin, Sequence, List, get_args, Union
 from sqlalchemy.orm import ColumnProperty
 from sqlalchemy import Integer, String, Float, Boolean, inspect
 from enum import Enum
@@ -11,13 +11,20 @@ T = TypeVar("T")
 U = TypeVar("U")
 
 
-def cast_value(target_type: Type, value: Any) -> Any:
-    """Casts the given value to the target type, with special handling for Enums and SQLAlchemy column types.
 
-    If value is None, returns None without performing any cast.
-    """
+def cast_value(target_type: Type, value: Any) -> Any:
     if value is None:
         return None
+
+    # Handle Optional[X] (i.e., Union[X, NoneType])
+    origin = get_origin(target_type)
+    if origin is Union:
+        args = get_args(target_type)
+        non_none_args = [arg for arg in args if arg is not type(None)]
+        if len(non_none_args) == 1:
+            target_type = non_none_args[0]  # Unwrap Optional[X]
+        else:
+            raise ValueError(f"Cannot cast value {value} to ambiguous Union {target_type}")
 
     if target_type == datetime:
         target_type = datetime.datetime
@@ -25,7 +32,7 @@ def cast_value(target_type: Type, value: Any) -> Any:
     if isinstance(value, target_type):
         return value
 
-    print("isinstance(value, Enum): " + str(isinstance(value, Enum)))
+    # Enum value handling
     if isinstance(value, Enum):
         if isinstance(value.value, int):
             return int(value.value)
@@ -38,12 +45,14 @@ def cast_value(target_type: Type, value: Any) -> Any:
         else:
             raise ValueError(f"Unsupported Enum value type: {type(value.value)}")
 
+    # Handle casting to Enum
     if isinstance(target_type, type) and issubclass(target_type, Enum):
         try:
             return target_type(value)
         except ValueError:
             raise ValueError(f"Invalid value {value} for Enum {target_type}")
 
+    # Handle datetime parsing
     if target_type == datetime.datetime:
         if isinstance(value, str):
             try:
@@ -56,6 +65,7 @@ def cast_value(target_type: Type, value: Any) -> Any:
             except Exception as e:
                 raise ValueError(f"Error converting timestamp {value} to datetime: {e}")
 
+    # SQLAlchemy type mapping
     sqlalchemy_type_mapping = {
         Integer: int,
         String: str,
@@ -66,11 +76,14 @@ def cast_value(target_type: Type, value: Any) -> Any:
     if target_type in sqlalchemy_type_mapping:
         target_type = sqlalchemy_type_mapping[target_type]
 
+    # Special case: cast int 0/1 to bool
+    if target_type is bool and isinstance(value, (int, str)):
+        return bool(int(value))
+
     try:
         return target_type(value)
     except Exception as e:
         raise ValueError(f"Error casting value {value} to {target_type}: {e}")
-
 
 async def map_models(source: T, target_class: Type[U]) -> U:
     """

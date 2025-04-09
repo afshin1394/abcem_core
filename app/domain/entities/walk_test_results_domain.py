@@ -4,7 +4,6 @@ from typing import Optional, Any, Dict
 from app.domain.enums.step_test_type_enum import StepTestTypeEnum
 from app.domain.enums.technology_enum import TechnologyEnum
 
-
 @dataclass
 class WalkTestResultsDomain:
     step_number: int
@@ -13,7 +12,7 @@ class WalkTestResultsDomain:
     walk_test_detail_id: str
 
     call_test_id: Optional[str]
-    drop_call: Optional[bool]
+    drop_call: Optional[int]
     technology_id: Optional[TechnologyEnum]
     is_voltE: Optional[bool]
 
@@ -28,3 +27,4 @@ class WalkTestResultsDomain:
     ping: Optional[float]
     jitter: Optional[float]
     speed_test_result_technology_id: Optional[TechnologyEnum]
+

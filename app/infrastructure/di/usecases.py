@@ -85,3 +85,4 @@ async def get_walk_test_results_by_walk_test_id_use_case(
         mediator: Mediator = Depends(get_mediator)
 )-> GetWalkTestResultsByWalkTestIdUseCase:
     return GetWalkTestResultsByWalkTestIdUseCase(mediator=mediator)
+

@@ -31,6 +31,6 @@ async def get_all_by_msisdn(walk_test_by_msisdn_request: GetWalkTestByMSISDNRequ
 async def send_walk_test_results(walk_test_results_request: WalkTestResultsRequest,walk_test_controller: WalkTestController = Depends(get_walk_test_controller)):
     return await walk_test_controller.receive_walk_test_results(walk_test_results_request)
 
-@router_v1.post("/get_walk_test_results_by_walk_test_id", response_model=WalkTestResultsByWalkTestIdResponse)
+@router_v1.post("/get_walk_test_results_by_walk_test_id", response_model=WalkTestResultsByWalkTestIdResponse,response_model_exclude_none=True)
 async def get_walk_test_results_by_walk_test_id(walk_test_results_by_walk_test_id_request: WalkTestResultsByWalkTestIdRequest,walk_test_controller: WalkTestController = Depends(get_walk_test_controller)):
-    return await walk_test_controller.get_walk_test_results_by_walk_test_id(walk_test_results_bt_walk_test_id_request=walk_test_results_by_walk_test_id_request)
+    return await walk_test_controller.get_walk_test_results_by_walk_test_id(walk_test_results_by_walk_test_id_request=walk_test_results_by_walk_test_id_request)

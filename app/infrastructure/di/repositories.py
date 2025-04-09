@@ -1,4 +1,5 @@
 from app.domain.repositories.read.read_complaint_type_repository import ReadComplaintTypeRepository
+from app.domain.repositories.read.read_device_info_repository import ReadDeviceInfoRepository
 from app.domain.repositories.read.read_problematic_service_repository import ReadProblematicServiceRepository
 from app.domain.repositories.read.read_service_type_repository import ReadServiceTypeRepository
 from app.domain.repositories.read.read_technology_repository import ReadTechnologyRepository
@@ -12,6 +13,7 @@ from app.domain.repositories.write.single.write_device_info_repository import Wr
 from app.domain.repositories.write.single.write_walk_test_repository import WriteWalkTestRepository
 from app.infrastructure.di.database import get_db
 from app.infrastructure.repository_impl.read.read_complaint_type_repository_impl import ReadComplaintTypeRepositoryImpl
+from app.infrastructure.repository_impl.read.read_device_info_repository_impl import ReadDeviceInfoRepositoryImpl
 from app.infrastructure.repository_impl.read.read_problematic_service_repository_impl import \
     ReadProblematicServiceRepositoryImpl
 from app.infrastructure.repository_impl.read.read_service_type_repsitory_impl import ReadServiceTypeRepositoryImpl
@@ -27,8 +29,8 @@ from fastapi import Depends
 from app.infrastructure.repository_impl.users_repository_impl import UsersRepositoryImpl
 from app.infrastructure.repository_impl.write.multi.write_walk_test_result_unit_of_work_impl import \
     WriteWalkTestResultsUnitOfWorkImpl
-from app.infrastructure.repository_impl.write.single.write_device_info_repository_impl import WriteDBImpl
-from app.infrastructure.repository_impl.write.single.write_walk_test_repository_impl import WriteDBImpl
+from app.infrastructure.repository_impl.write.single.write_device_info_repository_impl import  WriteDeviceInfoRepositoryImpl
+from app.infrastructure.repository_impl.write.single.write_walk_test_repository_impl import WriteWalkTestRepositoryImpl
 
 
 async def get_speed_test_repository(
@@ -47,12 +49,12 @@ async def get_users_repository(
 async def get_write_walk_test_repository(
         async_session: AsyncSession = Depends(get_db),
 ) -> WriteWalkTestRepository:
-    return WriteDBImpl(db=async_session)
+    return WriteWalkTestRepositoryImpl(db=async_session)
 
 async def get_write_device_info_repository(
         async_session: AsyncSession = Depends(get_db)
 ) -> WriteDeviceInfoRepository:
-    return WriteDBImpl(db=async_session)
+    return WriteDeviceInfoRepositoryImpl(db=async_session)
 
 
 
@@ -93,7 +95,10 @@ async def get_read_test_step_type_repository(
 ) -> ReadTestStepTypeRepository:
     return ReadTestStepTypeRepositoryImpl(db=async_session)
 
-
+async def get_read_device_info_repository(
+        async_session: AsyncSession = Depends(get_db)
+) -> ReadDeviceInfoRepository:
+    return ReadDeviceInfoRepositoryImpl(db=async_session)
 
 # units of work
 async def get_write_walk_test_results_unit_of_work(

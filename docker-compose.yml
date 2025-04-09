@@ -132,10 +132,67 @@ services:
       timeout: 5s
       retries: 5
 
+  airflow_postgres:
+   image: postgres:17-alpine
+   user: postgres
+   ports:
+    - "5434:5432"
+   environment:
+    POSTGRES_USER: airflow
+    POSTGRES_PASSWORD: airflow
+    POSTGRES_DB: airflow
+   volumes:
+    - airflow_postgres_data:/var/lib/postgresql/data
+   healthcheck:
+    test: [ "CMD-SHELL", "pg_isready -U airflow -h airflow_postgres -p 5432" ]
+    interval: 10s
+    timeout: 5s
+    retries: 5
 
+  airflow-webserver:
+   image: apache/airflow:latest
+   restart: always
+   depends_on:
+    - airflow_postgres
+    - redis
+   environment:
+     AIRFLOW__CORE__EXECUTOR: LocalExecutor
+     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow_postgres:5432/airflow
+     AIRFLOW__CORE__FERNET_KEY: dCxB1GUQVFb8AzC5MpJYJ0_VBtuyaOOZ9ullj2o0FkA=
+     AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+     AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "true"
+   volumes:
+    - ./app/infrastructure/airflow/dags:/opt/airflow/dags
+   ports:
+    - "8081:8080"
+   command: |
+     bash -c "
+        airflow db init &&
+        airflow users create --username admin --password admin --firstname Admin --lastname User --email admin@example.com --role Admin &&
+        exec airflow webserver
+      "
+
+  airflow-scheduler:
+   image: apache/airflow:latest
+   restart: always
+   depends_on:
+    - airflow-webserver
+    - airflow_postgres
+   environment:
+     AIRFLOW__CORE__EXECUTOR: LocalExecutor
+     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow_postgres:5432/airflow
+     AIRFLOW__CORE__FERNET_KEY: dCxB1GUQVFb8AzC5MpJYJ0_VBtuyaOOZ9ullj2o0FkA=
+   volumes:
+    - ./app/infrastructure/airflow/dags:/opt/airflow/dags
+   command: |
+     bash -c "
+       airflow db init && 
+       exec airflow scheduler
+     "
 volumes:
   #    elasticsearch_data:
   redis_data:
   pgadmin_data:
   postgres_data:
   logto_postgres_data:
+  airflow_postgres_data:

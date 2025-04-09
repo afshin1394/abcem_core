@@ -7,7 +7,7 @@ from app.infrastructure.repository_impl.write import BaseWriteDB
 from app.infrastructure.schemas.table_walk_test import TableWalkTest
 
 
-class WriteDBImpl(BaseWriteDB, WriteWalkTestRepository):
+class WriteWalkTestRepositoryImpl(BaseWriteDB, WriteWalkTestRepository):
 
     def __init__(self, db: AsyncSession):
         super().__init__(db)
