@@ -3,17 +3,13 @@ from typing import List
 
 @dataclass
 class SpeedTestServerDomain:
-    id: str
-    sponsor: str
+    id: int
     name: str
-    country: str
-    lat: str
-    lon: str
-    url: str
+    sponsor: str
     host: str
+    country: str
+    lat: float
+    lon: float
     distance: float
-    cc: str
+    url: str
 
-    @staticmethod
-    def validate_list(data) -> List:
-        return list(data)

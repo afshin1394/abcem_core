@@ -2,5 +2,6 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/app/infrastructure/repository_impl/read/read_walk_test_results_repository_impl.py" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/app/infrastructure/repository_impl/write/single/write_walk_test_repository_impl.py" dialect="GenericSQL" />
   </component>
 </project>

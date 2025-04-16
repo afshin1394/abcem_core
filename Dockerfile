@@ -12,7 +12,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application
-COPY . .
+COPY . /app
 
 ## Expose the port (if needed)
 # Copy the entrypoint script and make it executable

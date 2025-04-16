@@ -8,6 +8,6 @@ class ProblematicServiceTypeController:
         self.get_all_problematic_service_types_use_case = get_all_problematic_service_types_use_case
 
     async def get_all(self) -> ProblematicServiceResponse:
-        problematic_service_domain_list = await self.get_all_problematic_service_types_use_case.execute()
+        problematic_service_domain_list = await self.get_all_problematic_service_types_use_case()
         problematic_service_response_list = await map_models_list(problematic_service_domain_list, ProblematicService)
         return ProblematicServiceResponse(result=problematic_service_response_list)

@@ -1,12 +1,11 @@
 from typing import Generic, TypeVar, Optional
-from pydantic import Field
-from pydantic.generics import GenericModel
+from pydantic import Field, BaseModel
 
 # A type variable for the data we're returning
 DataT = TypeVar("DataT")
 
 
-class BaseSuccessResponse(GenericModel, Generic[DataT]):
+class BaseSuccessResponse(BaseModel, Generic[DataT]):
     """
     A generic success response model with a default HTTP 200 status code
     and a 'result' that can be any type or model.

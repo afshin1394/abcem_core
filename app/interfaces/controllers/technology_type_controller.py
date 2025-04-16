@@ -8,6 +8,6 @@ class TechnologyTypeController:
         self.get_all_technology_types_use_case = get_all_technology_types_use_case
 
     async def get_all(self) -> TechnologyTypeResponse:
-        technology_type_domain_list = await self.get_all_technology_types_use_case.execute()
+        technology_type_domain_list = await self.get_all_technology_types_use_case()
         technology_type_list = await map_models_list(technology_type_domain_list, TechnologyType)
         return TechnologyTypeResponse(result=technology_type_list)

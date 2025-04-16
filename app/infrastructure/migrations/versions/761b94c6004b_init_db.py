@@ -38,22 +38,19 @@ def upgrade() -> None:
     sa.Column('updated_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
-    op.create_table('table_speed_test_servers',
-    sa.Column('server_id', sa.String(), nullable=True),
-    sa.Column('sponsor', sa.String(), nullable=True),
-    sa.Column('name', sa.String(), nullable=True),
-    sa.Column('country', sa.String(), nullable=True),
-    sa.Column('lat', sa.String(), nullable=True),
-    sa.Column('lon', sa.String(), nullable=True),
-    sa.Column('url', sa.String(), nullable=True),
-    sa.Column('host', sa.String(), nullable=True),
-    sa.Column('distance', sa.FLOAT(), nullable=True),
-    sa.Column('cc', sa.String(), nullable=True),
-    sa.Column('last_updated', sa.TIMESTAMP(), nullable=True),
-    sa.Column('id', sa.String(), nullable=False),
-    sa.Column('updated_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('server_id')
+    op.create_table(
+        'table_speed_test_servers',
+        sa.Column('id', sa.Integer(), primary_key=True),
+        sa.Column('name', sa.String(), nullable=True),
+        sa.Column('sponsor', sa.String(), nullable=True),
+        sa.Column('country', sa.String(), nullable=True),
+        sa.Column('lat', sa.String(), nullable=True),
+        sa.Column('lon', sa.String(), nullable=True),
+        sa.Column('distance', sa.Float(), nullable=True),
+        sa.Column('host', sa.String(), nullable=True),
+        sa.Column('url', sa.String(), nullable=True),
+        sa.Column('updated_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
+
     )
     op.create_table('table_step_test_type',
     sa.Column('name', sa.String(), nullable=True),

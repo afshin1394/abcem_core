@@ -1,7 +1,5 @@
-# app/application/mediator.py
 import inspect
 from typing import Type, Callable, Dict, Any
-from inspect import iscoroutinefunction
 import logging
 
 

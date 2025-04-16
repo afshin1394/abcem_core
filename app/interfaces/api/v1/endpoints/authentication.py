@@ -9,7 +9,6 @@ from app.interfaces.controllers.user_controller import UserController
 from app.interfaces.dto.request.authenticate_request import AuthenticateRequest
 from app.interfaces.dto.request.user_create_request import CreateUserRequest
 from app.interfaces.dto.response.authenticate_response import AuthenticateResponse
-from app.interfaces.dto.response.server_response import SpeedTestServerResponse
 
 # Router for API version 1
 router_v1 = APIRouter(
@@ -37,7 +36,3 @@ async def create_user(create_user_request : CreateUserRequest,create_user_contro
     logger.logger.debug(msg= f'create_user_v1 {create_user_request}')
     return await create_user_controller.create_user(create_user_request)
 
-@router_v1.post("/insertSpeed", response_model = List[SpeedTestServerResponse])
-async def speed_fetch(user_controller : UserController = Depends(get_create_user_controller)) :
-    logger.logger.debug(msg= f'insertSpeed {user_controller}')
-    return await user_controller.speed_test_init()

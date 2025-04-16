@@ -10,6 +10,7 @@ from app.domain.repositories.speed_test_repository import SpeedTestRepository
 from app.domain.repositories.users_repository import UsersRepository
 from app.domain.repositories.write.multi.write_walk_test_result_unit_of_work import WriteWalkTestResultUnitOfWork
 from app.domain.repositories.write.single.write_device_info_repository import WriteDeviceInfoRepository
+from app.domain.repositories.write.single.write_speed_test_server_repository import WriteSpeedTestServerRepository
 from app.domain.repositories.write.single.write_walk_test_repository import WriteWalkTestRepository
 from app.infrastructure.di.database import get_db
 from app.infrastructure.repository_impl.read.read_complaint_type_repository_impl import ReadComplaintTypeRepositoryImpl
@@ -22,7 +23,7 @@ from app.infrastructure.repository_impl.read.read_test_step_type_repositroy_impl
 from app.infrastructure.repository_impl.read.read_walk_test_repository_impl import ReadWalkTestRepositoryImpl
 from app.infrastructure.repository_impl.read.read_walk_test_results_repository_impl import \
     ReadWalkTestResultsRepositoryImpl
-from app.infrastructure.repository_impl.speed_test_repository_impl import SpeedTestRepositoryImpl
+from app.infrastructure.repository_impl.write.single.write_speed_test_server_repository_impl import WriteSpeedTestServerRepositoryImpl
 from sqlalchemy.ext.asyncio import AsyncSession
 from fastapi import Depends
 
@@ -30,13 +31,15 @@ from app.infrastructure.repository_impl.users_repository_impl import UsersReposi
 from app.infrastructure.repository_impl.write.multi.write_walk_test_result_unit_of_work_impl import \
     WriteWalkTestResultsUnitOfWorkImpl
 from app.infrastructure.repository_impl.write.single.write_device_info_repository_impl import  WriteDeviceInfoRepositoryImpl
+from app.infrastructure.repository_impl.write.single.write_speed_test_server_repository_impl import \
+    WriteSpeedTestServerRepositoryImpl
 from app.infrastructure.repository_impl.write.single.write_walk_test_repository_impl import WriteWalkTestRepositoryImpl
 
 
-async def get_speed_test_repository(
+async def get_speed_test_server_repository(
         async_session: AsyncSession = Depends(get_db),
-) -> SpeedTestRepository:
-    return SpeedTestRepositoryImpl(db=async_session)
+) -> WriteSpeedTestServerRepository:
+    return WriteSpeedTestServerRepositoryImpl(db=async_session)
 
 
 async def get_users_repository(
@@ -50,6 +53,10 @@ async def get_write_walk_test_repository(
         async_session: AsyncSession = Depends(get_db),
 ) -> WriteWalkTestRepository:
     return WriteWalkTestRepositoryImpl(db=async_session)
+async def get_write_speed_test_servers_repository(
+        async_session: AsyncSession = Depends(get_db),
+) -> WriteSpeedTestServerRepository:
+    return WriteSpeedTestServerRepositoryImpl(db=async_session)
 
 async def get_write_device_info_repository(
         async_session: AsyncSession = Depends(get_db)

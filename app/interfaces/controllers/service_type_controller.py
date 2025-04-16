@@ -10,6 +10,6 @@ class ServiceTypeController:
 
 
     async def get_all(self) -> ServiceTypeResponse:
-        service_type_domain_list = await self.get_all_service_type_use_case.execute()
+        service_type_domain_list = await self.get_all_service_type_use_case()
         service_type_response_list = await map_models_list(service_type_domain_list, ServiceType)
         return ServiceTypeResponse(result=service_type_response_list)

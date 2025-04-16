@@ -11,15 +11,8 @@ class SpeedTestServerListUseCase(BaseUseCase):
     def __init__(self, repository: SpeedTestRepository):
         self.repository = repository
 
-    async def execute(self, **kwargs) -> List[SpeedTestServerDomain]:
-        # Initialize the crawler with concurrency = 10 and max retries = 3
-        concurrency = int(kwargs.get("concurrency", "Key not found"))
-        retries = int(kwargs.get("retries", "Key not found"))
-        # Start the crawler and get the results
-        crawler = SpeedTestServerCrawler(t=concurrency, r=retries)
-        servers = await crawler.run()
+    async def __execute__(self, **kwargs) -> List[SpeedTestServerDomain]:
 
-        print(servers)
         await self.repository.upsert_servers(servers=servers)
 
         return servers

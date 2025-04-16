@@ -34,7 +34,7 @@ python-dotenv==1.0.1
 redis==5.2.1
 shapely==2.0.7
 sniffio==1.3.1
-SQLAlchemy==2.0.38
+SQLAlchemy==1.4.46
 starlette==0.45.3
 typing_extensions==4.12.2
 tzlocal==5.2
@@ -44,3 +44,6 @@ debugpy==1.8.12
 pytest~=8.3.5
 orjson~=3.10.16
 logto~=0.2.1
+apache-airflow==2.10.5
+flask-appbuilder==4.5.3
+marshmallow-sqlalchemy==0.28.2

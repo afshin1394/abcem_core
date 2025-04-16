@@ -5,28 +5,78 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32495f57-93b2-4593-a15d-d4c5d0910bb9" name="Changes" comment="alembic integration">
-      <change afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/query_handler/get_device_info_by_walk_test_id_query_handler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/application/cqrs/queries/get_device_info_by_walk_test_id_query.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/repositories/read/read_device_info_repository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/airflow/dags/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/read/read_device_info_repository_impl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/application/cqrs/commands/update_speed_test_servers_command.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/application/cqrs/commands/update_walk_test_status_command.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/command_handler/update_speed_test_servers_command_handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/command_handler/update_walk_test_status_command_handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/application/usecase/update_speed_test_server_use_case.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/application/usecase/update_walk_test_status_use_case.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/repositories/write/single/write_speed_test_server_repository.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/infrastructure/airflow/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/infrastructure/airflow/dags/postgres_sync.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/infrastructure/airflow/dags/update_walk_test_status_dag.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/infrastructure/airflow/dags/utils/walk_test_status_enum.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/write/single/write_speed_test_server_repository_impl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/health_check.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/speed_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/interfaces/controllers/speed_test_controller.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/interfaces/dto/request/update_speed_test_servers_request.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/interfaces/dto/request/update_walk_test_status_request.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/interfaces/dto/response/speed_test_server_response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/interfaces/dto/response/update_walk_test_status_response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.docker" beforeDir="false" afterPath="$PROJECT_DIR$/.env.docker" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/application/cqrs/handlers/command_handler/create_walk_test_results_command_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/command_handler/create_walk_test_results_command_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/application/cqrs/handlers/query_handler/get_walk_test_results_by_walk_test_id_query_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/query_handler/get_walk_test_results_by_walk_test_id_query_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alembic.ini" beforeDir="false" afterPath="$PROJECT_DIR$/alembic.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/cqrs/handlers/command_handler/create_walk_test_command_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/cqrs/handlers/command_handler/create_walk_test_command_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/mediator.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/mediator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/usecase/base_use_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/usecase/base_use_case.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/usecase/create_user_usecase.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/usecase/create_user_usecase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/usecase/create_walk_test_usecase.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/usecase/create_walk_test_usecase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/usecase/get_all_complaint_types_usecase.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/usecase/get_all_complaint_types_usecase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/usecase/get_all_problematic_service_types_usecase.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/usecase/get_all_problematic_service_types_usecase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/usecase/get_all_service_type_usecase.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/usecase/get_all_service_type_usecase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/usecase/get_all_technology_type_usecase.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/usecase/get_all_technology_type_usecase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/usecase/get_all_test_step_type_usecase.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/usecase/get_all_test_step_type_usecase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/usecase/get_all_walk_test_by_msisdn_usecase.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/usecase/get_all_walk_test_by_msisdn_usecase.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/application/usecase/get_walk_test_results_by_walk_test_id_use_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/usecase/get_walk_test_results_by_walk_test_id_use_case.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/domain/entities/walk_test_results_domain.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/entities/walk_test_results_domain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/usecase/insert_walk_test_results_use_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/usecase/insert_walk_test_results_use_case.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/usecase/speed_test_server_list_usecase.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/usecase/speed_test_server_list_usecase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/application/usecase/update_device_info_usecase.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application/usecase/update_device_info_usecase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/domain/entities/speed_test_server_domain.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/entities/speed_test_server_domain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/domain/repositories/write/single/write_walk_test_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/repositories/write/single/write_walk_test_repository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/di/controllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/di/controllers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/di/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/di/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/di/jobs.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/di/jobs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/infrastructure/di/mediator.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/di/mediator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/infrastructure/di/repositories.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/di/repositories.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/infrastructure/di/usecases.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/di/usecases.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/mapper/mapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/mapper/mapper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/repository_impl/read/read_walk_test_repository_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/read/read_walk_test_repository_impl.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/repository_impl/read/read_walk_test_results_repository_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/read/read_walk_test_results_repository_impl.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/infrastructure/repository_impl/write/single/write_device_info_repository_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/write/single/write_device_info_repository_impl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/migrations/versions/761b94c6004b_init_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/migrations/versions/761b94c6004b_init_db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/postgres.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/postgres_async.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/repository_impl/speed_test_repository_impl.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/infrastructure/repository_impl/write/single/write_walk_test_repository_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/repository_impl/write/single/write_walk_test_repository_impl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/infrastructure/schemas/table_speed_test_servers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/infrastructure/schemas/table_speed_test_servers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/api/v1/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/api/v1/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/authentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/authentication.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/validation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/walk_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/api/v1/endpoints/walk_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/controllers/complaint_type_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/controllers/complaint_type_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/controllers/device_info_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/controllers/device_info_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/controllers/problematic_service_type_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/controllers/problematic_service_type_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/controllers/service_type_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/controllers/service_type_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/controllers/technology_type_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/controllers/technology_type_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/controllers/test_step_type_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/controllers/test_step_type_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/controllers/user_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/controllers/user_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/interfaces/controllers/walk_test_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/controllers/walk_test_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/interfaces/dto/response/walk_test_results_by_walk_test_id_response.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/dto/response/walk_test_results_by_walk_test_id_response.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/dto/response/server_response.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/dto/success_response.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/dto/success_response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrypoint.sh" beforeDir="false" afterPath="$PROJECT_DIR$/entrypoint.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logto/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/infrastructure/repositoryImpl/speed_test_repository_impl_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/infrastructure/repositoryImpl/speed_test_repository_impl_test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +89,17 @@
         <option value="Dockerfile" />
         <option value="Python Script" />
       </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform)); sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo, NoAppException&#10;for module in [&quot;main.py&quot;, &quot;wsgi.py&quot;, &quot;app.py&quot;]:&#10;    try: locals().update(ScriptInfo(app_import_path=module, create_app=None).load_app().make_shell_context()); print(&quot;\nFlask App: %s&quot; % app.import_name); break&#10;    except NoAppException: pass">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform)); sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo, NoAppException&#10;for module in [&quot;main.py&quot;, &quot;wsgi.py&quot;, &quot;app.py&quot;]:&#10;    try: locals().update(ScriptInfo(app_import_path=module, create_app=None).load_app().make_shell_context()); print(&quot;\nFlask App: %s&quot; % app.import_name); break&#10;    except NoAppException: pass" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
     </option>
   </component>
   <component name="Git.Settings">
@@ -109,11 +170,11 @@
       <recent name="$PROJECT_DIR$/app/infrastructure" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/app/infrastructure/airflow/dags" />
       <recent name="$PROJECT_DIR$/app/application/cqrs/commands" />
       <recent name="$PROJECT_DIR$/app/domain/repositories/write/single" />
       <recent name="$PROJECT_DIR$/app/infrastructure/repository_impl/write/single" />
-      <recent name="$PROJECT_DIR$/app/infrastructure/repository_impl/write/multi" />
-      <recent name="$PROJECT_DIR$/app/domain/repositories/write" />
     </key>
   </component>
   <component name="RunManager" selected="Python tests.Python tests for walk_test_results_request.test_result_key">
@@ -308,7 +369,15 @@
       <workItem from="1743349953949" duration="16196000" />
       <workItem from="1744092325828" duration="16329000" />
       <workItem from="1744130407312" duration="37000" />
-      <workItem from="1744179960199" duration="23393000" />
+      <workItem from="1744179960199" duration="24048000" />
+      <workItem from="1744439675871" duration="21112000" />
+      <workItem from="1744525696234" duration="1833000" />
+      <workItem from="1744527651295" duration="22023000" />
+      <workItem from="1744614629189" duration="9447000" />
+      <workItem from="1744700215175" duration="17006000" />
+      <workItem from="1744784508643" duration="1837000" />
+      <workItem from="1744784316484" duration="58000" />
+      <workItem from="1744796200232" duration="7702000" />
     </task>
     <task id="LOCAL-00001" summary="alembic integration">
       <option name="closed" value="true" />
@@ -343,23 +412,23 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/app/infrastructure/postgres.py</url>
+          <url>file://$PROJECT_DIR$/app/infrastructure/postgres_async.py</url>
           <line>4</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app/interfaces/api/v1/endpoints/authentication.py</url>
-          <line>36</line>
+          <line>35</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app/interfaces/api/v1/endpoints/authentication.py</url>
-          <line>37</line>
+          <line>36</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app/interfaces/api/v1/endpoints/authentication.py</url>
-          <line>35</line>
+          <line>34</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -386,6 +455,16 @@
           <url>file://$PROJECT_DIR$/app/application/cqrs/shared/command_handler.py</url>
           <line>56</line>
           <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app/domain/repositories/speed_test_repository.py</url>
+          <line>16</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app/infrastructure/repository_impl/write/single/write_speed_test_server_repository_impl.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

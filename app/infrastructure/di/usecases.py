@@ -11,16 +11,18 @@ from app.application.usecase.get_walk_test_results_by_walk_test_id_use_case impo
 from app.application.usecase.insert_walk_test_results_use_case import InsertWalkTestResultsUseCase
 from app.application.usecase.speed_test_server_list_usecase import SpeedTestServerListUseCase
 from app.application.usecase.update_device_info_usecase import UpdateDeviceInfoUseCase
+from app.application.usecase.update_speed_test_server_use_case import UpdateSpeedTestServersUseCase
+from app.application.usecase.update_walk_test_status_use_case import UpdateWalkTestStatusUseCase
 from app.domain.cache.cache_gateway import CacheGateway
 from app.domain.repositories.speed_test_repository import SpeedTestRepository
 from fastapi import Depends
 from app.infrastructure.di.mediator import get_mediator
 from app.infrastructure.di.redis_client import get_cache
-from app.infrastructure.di.repositories import get_speed_test_repository
+from app.infrastructure.di.repositories import get_speed_test_server_repository
 
 
 async def get_speed_test_use_case(
-        speed_test_repository: SpeedTestRepository = Depends(get_speed_test_repository),
+        speed_test_repository: SpeedTestRepository = Depends(get_speed_test_server_repository),
 ) -> SpeedTestServerListUseCase:
     return SpeedTestServerListUseCase(repository=speed_test_repository)
 
@@ -85,4 +87,14 @@ async def get_walk_test_results_by_walk_test_id_use_case(
         mediator: Mediator = Depends(get_mediator)
 )-> GetWalkTestResultsByWalkTestIdUseCase:
     return GetWalkTestResultsByWalkTestIdUseCase(mediator=mediator)
+
+async def get_update_walk_test_status_use_case(
+        mediator: Mediator = Depends(get_mediator)
+) -> UpdateWalkTestStatusUseCase:
+    return UpdateWalkTestStatusUseCase(mediator = mediator)
+
+async def get_update_speed_test_servers_use_case(
+        mediator: Mediator = Depends(get_mediator)
+) -> UpdateSpeedTestServersUseCase:
+    return UpdateSpeedTestServersUseCase(mediator=mediator)
 

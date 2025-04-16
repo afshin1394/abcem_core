@@ -1,9 +1,9 @@
-import json
-import time
+import asyncio
+import subprocess
 from contextlib import asynccontextmanager
-from typing import cast
 
-from starlette.responses import  Response
+from alembic import command
+from alembic.config import Config
 
 from app.infrastructure.exceptions import InfrastructureException
 from app.interfaces.api import router_all
@@ -14,11 +14,21 @@ from fastapi.exceptions import RequestValidationError
 from app.interfaces.dto.error_response import ErrorResponse
 from app.interfaces.open_api import custom_openapi
 
+import os  # Add this import
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    yield
+        try:
+            print("🔧Running Alembic migrations before startup...")
 
+            alembic_cfg = Config("/app/alembic.ini")  # assuming /app is your working directory
+            command.upgrade(alembic_cfg, "head")
+
+            print("Migrations complete. Starting app...")
+            yield
+        except Exception as e:
+            print(f'exception {e}')
 
 app = FastAPI(docs_url="/api/docs", redoc_url="/api/redoc", lifespan=lifespan)
 
@@ -34,14 +44,13 @@ async def http_exception_handler(request: Request, exc: HTTPException):
         },
     )
 
+
 @app.exception_handler(InfrastructureException)
 async def infrastructure_exception_handler(request: Request, exc: InfrastructureException):
-    return ErrorResponse(status_code=exc.status_code,   content={
-            "message": exc.message,
-            "code": exc.status_code,
-        },)
-
-
+    return ErrorResponse(status_code=exc.status_code, content={
+        "message": exc.message,
+        "code": exc.status_code,
+    }, )
 
 
 @app.exception_handler(RequestValidationError)
@@ -73,3 +82,7 @@ async def general_exception_handler(request: Request, exc: Exception):
 
 app.include_router(router_all)
 app.openapi_schema = custom_openapi(app=app)
+
+
+
+

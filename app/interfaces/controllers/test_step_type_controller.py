@@ -11,6 +11,6 @@ class TestStepTypeController:
 
 
     async def get_all(self) -> TestStepTypeResponse:
-       test_step_type_domain_list = await self.get_all_test_step_type_use_case.execute()
+       test_step_type_domain_list = await self.get_all_test_step_type_use_case()
        test_step_type_list = await map_models_list(test_step_type_domain_list, TestStepType)
        return TestStepTypeResponse(result=test_step_type_list)
