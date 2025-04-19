@@ -33,7 +33,8 @@ class TableWalkTest(BaseDBModelWithUUIDPK):
     times_of_day = Column(String, nullable=True)
     msisdn = Column(String, nullable=True)
     related_tt = Column(String, nullable=True)
-    created_at = Column(TIMESTAMP, default=func.now(), nullable=True)
+    created_at = Column(TIMESTAMP(timezone=True), default=func.now(), nullable=True)
+    # entered_at = Column(TIMESTAMP, nullable=True)
 
     technology_type_id = Column(Integer, ForeignKey('table_technology_type.id'), nullable=False)
     complaint_type_id = Column(Integer, ForeignKey('table_complaint_type.id'), nullable=False)

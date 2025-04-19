@@ -2,6 +2,7 @@ from app.domain.repositories.read.read_complaint_type_repository import ReadComp
 from app.domain.repositories.read.read_device_info_repository import ReadDeviceInfoRepository
 from app.domain.repositories.read.read_problematic_service_repository import ReadProblematicServiceRepository
 from app.domain.repositories.read.read_service_type_repository import ReadServiceTypeRepository
+from app.domain.repositories.read.read_speed_test_server_repository import ReadSpeedTestServerRepository
 from app.domain.repositories.read.read_technology_repository import ReadTechnologyRepository
 from app.domain.repositories.read.read_test_step_type_repository import ReadTestStepTypeRepository
 from app.domain.repositories.read.read_walk_test_repository import ReadWalkTestRepository
@@ -18,6 +19,8 @@ from app.infrastructure.repository_impl.read.read_device_info_repository_impl im
 from app.infrastructure.repository_impl.read.read_problematic_service_repository_impl import \
     ReadProblematicServiceRepositoryImpl
 from app.infrastructure.repository_impl.read.read_service_type_repsitory_impl import ReadServiceTypeRepositoryImpl
+from app.infrastructure.repository_impl.read.read_speed_test_server_repository_impl import \
+    ReadSpeedTestServerRepositoryImpl
 from app.infrastructure.repository_impl.read.read_technology_repository_impl import ReadTechnologyRepositoryImpl
 from app.infrastructure.repository_impl.read.read_test_step_type_repositroy_impl import ReadTestStepTypeRepositoryImpl
 from app.infrastructure.repository_impl.read.read_walk_test_repository_impl import ReadWalkTestRepositoryImpl
@@ -106,6 +109,11 @@ async def get_read_device_info_repository(
         async_session: AsyncSession = Depends(get_db)
 ) -> ReadDeviceInfoRepository:
     return ReadDeviceInfoRepositoryImpl(db=async_session)
+
+async def get_read_speed_test_server_repository(
+        async_session: AsyncSession = Depends(get_db)
+) -> ReadSpeedTestServerRepository:
+    return ReadSpeedTestServerRepositoryImpl(db=async_session)
 
 # units of work
 async def get_write_walk_test_results_unit_of_work(

@@ -2,12 +2,8 @@ from abc import ABC, abstractmethod
 from typing import Tuple
 
 
-class GetGISService:
+class AreAllLocationsWithinDistanceService(ABC):
     @abstractmethod
-    async def get_haversine_distance(self,coord1: Tuple[float, float],
-                               coord2: Tuple[float, float]) -> float:
+    async def validate_location_within_offset(self, offset=50, **coords) -> bool:
         pass
 
-    @abstractmethod
-    async def are_all_locations_within_distance(self,coordinates : list[Tuple[float,float]],distance : float) -> bool:
-        pass

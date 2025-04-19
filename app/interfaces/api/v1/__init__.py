@@ -10,7 +10,7 @@ from app.interfaces.api.v1.endpoints.service_type import router_v1 as service_ty
 from app.interfaces.api.v1.endpoints.test_step_type import router_v1 as test_step_type_router
 from app.interfaces.api.v1.endpoints.device_info import router_v1 as device_info_router
 from app.interfaces.api.v1.endpoints.speed_test import router_v1 as speed_test_router
-from app.interfaces.api.v1.endpoints.speed_test import router_v1 as health_checker_router
+from app.interfaces.api.v1.endpoints.health_check import router_v1 as health_checker_router
 
 
 router_v1 = APIRouter(prefix="/v1")

@@ -23,6 +23,8 @@ from app.application.cqrs.handlers.query_handler.get_all_complaint_type_query_ha
 from app.application.cqrs.handlers.query_handler.get_all_problematic_service_type_query_handler import \
     GetAllProblematicServiceTypeQueryHandler
 from app.application.cqrs.handlers.query_handler.get_all_service_type_query_handler import GetAllServiceTypeQueryHandler
+from app.application.cqrs.handlers.query_handler.get_all_speed_test_servers_query_handler import \
+    GetAllSpeedTestServersQueryHandler
 from app.application.cqrs.handlers.query_handler.get_all_technology_types_query_handler import \
     GetAllTechnologyTypesQueryHandler
 from app.application.cqrs.handlers.query_handler.get_all_test_step_type_query_handler import \
@@ -36,6 +38,7 @@ from app.application.cqrs.handlers.query_handler.get_walk_test_results_by_walk_t
 from app.application.cqrs.queries.get_all_complaint_type_query import GetAllComplaintTypeQuery
 from app.application.cqrs.queries.get_all_problematic_service_type_query import GetAllProblematicServiceTypeQuery
 from app.application.cqrs.queries.get_all_service_type_query import GetAllServiceTypeQuery
+from app.application.cqrs.queries.get_all_speed_test_servers_query import GetAllSpeedTestServersQuery
 from app.application.cqrs.queries.get_all_technology_types_query import GetAllTechnologyTypesQuery
 from app.application.cqrs.queries.get_all_test_step_type_query import GetAllTestStepTypeQuery
 from app.application.cqrs.queries.get_device_info_by_walk_test_id_query import GetDeviceInfoByWalkTestIdQuery
@@ -50,7 +53,7 @@ from app.infrastructure.di.repositories import get_users_repository, get_read_wa
     get_write_walk_test_repository, get_read_technology_type_repository, get_read_complaint_type_repository, \
     get_read_problematic_service_type_repository, get_read_service_type_repository, get_read_test_step_type_repository, \
     get_write_device_info_repository, get_write_walk_test_results_unit_of_work, get_read_walk_test_results_repository, \
-    get_read_device_info_repository, get_write_speed_test_servers_repository
+    get_read_device_info_repository, get_write_speed_test_servers_repository, get_read_speed_test_server_repository
 
 from app.infrastructure.di.services import get_ip_info_service
 
@@ -71,6 +74,7 @@ def get_mediator(
         read_test_step_type_repository=Depends(get_read_test_step_type_repository),
         read_walk_test_results_by_walk_test_id_repository=Depends(get_read_walk_test_results_repository),
         read_device_info_repository=Depends(get_read_device_info_repository),
+        read_speed_test_servers_repository=Depends(get_read_speed_test_server_repository)
 
 ) -> Mediator:
     # commands
@@ -89,7 +93,8 @@ def get_mediator(
     mediator.register_handler(UpdateWalkTestStatusCommand,
                               UpdateWalkTestStatusCommandHandler(write_walk_test_repository=write_walk_test_repository,
                                                                  cache_gateway=cache_gateway))
-    mediator.register_handler(UpdateSpeedTestServersCommand,UpdateSpeedTestServersCommandHandler(write_speed_test_server_repository=write_speed_test_repository,cache_gateway=cache_gateway))
+    mediator.register_handler(UpdateSpeedTestServersCommand, UpdateSpeedTestServersCommandHandler(
+        write_speed_test_server_repository=write_speed_test_repository, cache_gateway=cache_gateway))
 
     # queries
     mediator.register_handler(GetWalkTestByMSISDNQuery,
@@ -116,5 +121,8 @@ def get_mediator(
                               GetDeviceInfoByWalkTestIdQueryHandler(read_device_info_repository,
                                                                     cache_gateway=cache_gateway, expire=3600))
 
+    mediator.register_handler(GetAllSpeedTestServersQuery,
+                              GetAllSpeedTestServersQueryHandler(read_speed_test_servers_repository,
+                                                                 cache_gateway=cache_gateway, expire=3600))
 
     return mediator

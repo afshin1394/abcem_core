@@ -12,12 +12,11 @@ class WriteDeviceInfoRepositoryImpl(BaseWriteDB, WriteDeviceInfoRepository):
         super().__init__(db)
 
     async def update_device_info(self, device_info_domain: DeviceInfoDomain):
-        # Building the query to find the existing record by walk_test_id.
         stmt = select(TableDeviceInfo).where(
             TableDeviceInfo.walk_test_id == device_info_domain.walk_test_id
         )
 
-        async with self:  # This will use the context manager from BaseWriteRepository
+        async with self:
             result = await self.db.execute(stmt)
             existing_device = result.scalar_one_or_none()
 

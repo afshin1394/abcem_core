@@ -47,3 +47,5 @@ logto~=0.2.1
 apache-airflow==2.10.5
 flask-appbuilder==4.5.3
 marshmallow-sqlalchemy==0.28.2
+lazy-object-proxy~=1.10.0
+pytz~=2025.2

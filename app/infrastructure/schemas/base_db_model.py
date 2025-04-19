@@ -1,7 +1,9 @@
 """Declaring base model classes for sqlalchemy models."""
 import uuid
+from datetime import datetime
 
-from sqlalchemy import Column, DateTime, String, Integer
+import pytz
+from sqlalchemy import Column, DateTime, String, Integer, TIMESTAMP
 from sqlalchemy.ext.declarative import declared_attr
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.sql import func
@@ -30,7 +32,7 @@ class BaseDBModelWithUUIDPK(Base):
 class BaseDBModelWithIntegerPK(Base):
     __abstract__ = True
     id = Column(Integer, primary_key=True,autoincrement=True)
-    updated_at = Column(DateTime, server_default=func.now())
+    local_time = datetime.now(pytz.timezone('Asia/Tehran'))
     __name__: str
 
     @declared_attr

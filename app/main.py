@@ -14,7 +14,6 @@ from fastapi.exceptions import RequestValidationError
 from app.interfaces.dto.error_response import ErrorResponse
 from app.interfaces.open_api import custom_openapi
 
-import os  # Add this import
 
 
 @asynccontextmanager

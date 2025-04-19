@@ -4,6 +4,7 @@ from app.application.usecase.create_walk_test_usecase import CreateWalkTestUseCa
 from app.application.usecase.get_all_complaint_types_usecase import GetAllComplaintTypesUseCase
 from app.application.usecase.get_all_problematic_service_types_usecase import GetAllProblematicServiceTypesUseCase
 from app.application.usecase.get_all_service_type_usecase import GetAllServiceTypeUseCase
+from app.application.usecase.get_all_speed_test_servers_usecase import GetAllSpeedTestServersUseCase
 from app.application.usecase.get_all_technology_type_usecase import GetAllTechnologyTypesUseCase
 from app.application.usecase.get_all_test_step_type_usecase import GetAllTestStepTypeUseCase
 from app.application.usecase.get_all_walk_test_by_msisdn_usecase import GetAllWalkTestByMSISDNUseCase
@@ -98,3 +99,7 @@ async def get_update_speed_test_servers_use_case(
 ) -> UpdateSpeedTestServersUseCase:
     return UpdateSpeedTestServersUseCase(mediator=mediator)
 
+async def get_all_speed_test_servers_use_case(
+        mediator: Mediator = Depends(get_mediator)
+) -> GetAllSpeedTestServersUseCase:
+    return GetAllSpeedTestServersUseCase(mediator=mediator)

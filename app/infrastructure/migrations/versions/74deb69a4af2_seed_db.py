@@ -11,6 +11,7 @@ from typing import Sequence, Union
 from alembic import op
 import sqlalchemy as sa
 
+from app.domain.enums.base_config_enum import BaseConfigEnum
 from app.domain.enums.complaint_type_enum import ComplaintTypeEnum
 from app.domain.enums.problematic_service_enum import ProblematicServiceEnum
 from app.domain.enums.service_type_enum import ServiceTypeEnum
@@ -63,6 +64,14 @@ table_service_type = sa.table(
     sa.column("name", sa.String)
 )
 
+table_base_config = sa.table(
+    "table_base_config",
+    sa.column("id", sa.Integer),
+    sa.column("name", sa.String),
+    sa.column("value", sa.String),
+    sa.column("scale", sa.String)
+)
+
 def upgrade() -> None:
     # Convert Enum to dictionary format
     technology_data = [{"id": tech.value, "name": tech.name} for tech in TechnologyEnum]
@@ -72,6 +81,7 @@ def upgrade() -> None:
     step_type_data = [{"id": step.value, "name": step.name} for step in StepTestTypeEnum]
     service_type_data = [{"id": service_type.value, "name": service_type.name} for service_type in ServiceTypeEnum]
 
+
     # Insert data into tables
     op.bulk_insert(table_technology_type, technology_data)
     op.bulk_insert(table_walk_test_status, walk_test_status_data)
@@ -79,6 +89,14 @@ def upgrade() -> None:
     op.bulk_insert(table_problematic_service, problematic_service_data)
     op.bulk_insert(table_step_type, step_type_data)
     op.bulk_insert(table_service_type,service_type_data)
+    op.bulk_insert(
+        table_base_config,
+        [
+            {'name': BaseConfigEnum.WALK_TEST_LOCATION_OFFSET.value, 'value': '50','scale' : 'meter'},
+            {'name': BaseConfigEnum.WALK_TEST_VALIDATION_DURATION.value, 'value': '300','scale' : 'seconds'},
+        ]
+    )
+
 
 def downgrade() -> None:
     pass
